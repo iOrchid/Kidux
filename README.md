@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/icon.png" width="128" alt="启椟" />
+  <img src="icon.png" width="128" alt="启椟" />
 </p>
 
 <h1 align="center">启椟</h1>
