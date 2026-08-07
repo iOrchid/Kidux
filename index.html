@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>启椟 · Kidux — macOS 一键开箱装机助手</title>
+  <meta name="description" content="启椟（Kidux）是面向互联网从业者的 macOS 装机助手：选岗位、逛软件、一键安装。底层 Homebrew，本地优先，不含破解。" />
+  <meta property="og:title" content="启椟 · Kidux" />
+  <meta property="og:description" content="选岗位 · 逛软件 · 一键安装 — macOS 开发者开箱工具" />
+  <meta property="og:image" content="assets/icon.png" />
+  <link rel="icon" href="assets/icon.png" type="image/png" />
+  <!-- 样式内联：双击 index.html / file:// 也能正常显示，不依赖外链 CSS -->
+  <style>
+    :root {
+      --ink: #0a1628;
+      --foam: #e8f1f4;
+      --muted: #8aa0b5;
+      --line: rgba(232, 241, 244, 0.12);
+      --accent: #1ec8c1;
+      --accent-2: #2f7cf6;
+      --warm: #ffc857;
+      --radius: 18px;
+      --font-display: "Avenir Next", "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      --font-body: "Avenir Next", "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: var(--font-body);
+      color: var(--foam);
+      background:
+        radial-gradient(1200px 700px at 85% -10%, rgba(46, 124, 246, 0.28), transparent 55%),
+        radial-gradient(900px 600px at -10% 20%, rgba(30, 200, 193, 0.18), transparent 50%),
+        linear-gradient(165deg, #07101c 0%, var(--ink) 42%, #0d1b2e 100%);
+      line-height: 1.55;
+    }
+    a { color: inherit; text-decoration: none; }
+    .top, main, footer { position: relative; z-index: 1; }
+    .top {
+      display: flex; align-items: center; justify-content: space-between;
+      max-width: 1120px; margin: 0 auto; padding: 22px 24px 0;
+    }
+    .brand {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: var(--font-display); font-weight: 700; font-size: 1.15rem;
+    }
+    .brand img { border-radius: 9px; display: block; }
+    nav { display: flex; gap: 22px; align-items: center; font-size: 0.95rem; color: var(--muted); }
+    nav a:hover { color: var(--foam); }
+    .nav-github {
+      padding: 8px 14px; border: 1px solid var(--line); border-radius: 999px; color: var(--foam);
+    }
+    .hero {
+      max-width: 1120px; margin: 0 auto; padding: 72px 24px 88px;
+      display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 48px; align-items: center;
+      min-height: calc(100vh - 80px);
+    }
+    .eyebrow { margin: 0 0 18px; color: var(--accent); font-weight: 600; font-size: 0.92rem; }
+    .hero h1 {
+      margin: 0; font-family: var(--font-display); font-weight: 800;
+      font-size: clamp(4.2rem, 10vw, 7rem); line-height: 0.92; letter-spacing: -0.04em;
+      background: linear-gradient(120deg, #fff 20%, #b8e9e6 70%, #7eb6ff);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .lede { margin: 22px 0 28px; max-width: 34rem; font-size: 1.18rem; color: #c5d4e2; }
+    .cta-row { display: flex; flex-wrap: wrap; gap: 12px; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      min-height: 48px; padding: 0 22px; border-radius: 999px; font-weight: 700;
+      transition: transform 0.2s ease;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn.primary {
+      background: linear-gradient(120deg, var(--accent), var(--accent-2));
+      color: #041018; box-shadow: 0 12px 40px rgba(30, 200, 193, 0.25);
+    }
+    .btn.ghost { border: 1px solid var(--line); background: rgba(255, 255, 255, 0.03); }
+    .fine { margin: 16px 0 0; color: var(--muted); font-size: 0.9rem; }
+    .hero-visual { position: relative; min-height: 420px; display: grid; place-items: center; }
+    .orb {
+      position: absolute; border-radius: 50%; filter: blur(8px);
+      animation: float 7s ease-in-out infinite;
+    }
+    .orb-a { width: 220px; height: 220px; background: rgba(30, 200, 193, 0.35); top: 40px; right: 30px; }
+    .orb-b { width: 160px; height: 160px; background: rgba(47, 124, 246, 0.35); bottom: 50px; left: 40px; animation-delay: -2.5s; }
+    .window {
+      position: relative; width: min(100%, 360px); border-radius: 22px;
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(18, 35, 58, 0.92), rgba(10, 22, 40, 0.96));
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45); overflow: hidden;
+    }
+    .traffic { display: flex; gap: 8px; padding: 14px 16px; border-bottom: 1px solid var(--line); }
+    .traffic span { width: 10px; height: 10px; border-radius: 50%; background: #3a4d63; }
+    .traffic span:nth-child(1) { background: #ff5f57; }
+    .traffic span:nth-child(2) { background: #febc2e; }
+    .traffic span:nth-child(3) { background: #28c840; }
+    .window-body { padding: 28px 28px 32px; text-align: center; }
+    .app-icon { border-radius: 22px; box-shadow: 0 14px 36px rgba(0, 0, 0, 0.35); animation: float 5.5s ease-in-out infinite; }
+    .window-brand { margin: 18px 0 4px; font-family: var(--font-display); font-size: 1.8rem; font-weight: 800; }
+    .window-sub { margin: 0 0 22px; color: var(--muted); font-size: 0.95rem; }
+    .fake-list { list-style: none; margin: 0; padding: 0; text-align: left; display: grid; gap: 10px; }
+    .fake-list li {
+      display: flex; align-items: center; gap: 10px; padding: 12px 14px;
+      border-radius: 12px; background: rgba(255, 255, 255, 0.04); border: 1px solid var(--line); font-size: 0.95rem;
+    }
+    .fake-list i { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); display: inline-block; }
+    .fake-list .dim { opacity: 0.55; }
+    .fake-list .dim i { background: var(--warm); }
+    .how, .features, .download { max-width: 1120px; margin: 0 auto; padding: 40px 24px 72px; }
+    .how h2, .features h2, .download h2 {
+      margin: 0 0 10px; font-family: var(--font-display);
+      font-size: clamp(1.8rem, 3vw, 2.4rem); letter-spacing: -0.02em;
+    }
+    .section-lede { margin: 0 0 28px; color: var(--muted); max-width: 36rem; }
+    .steps { margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; counter-reset: step; }
+    .steps li {
+      counter-increment: step; padding: 22px; border-radius: var(--radius);
+      border: 1px solid var(--line); background: rgba(255, 255, 255, 0.03); min-height: 160px;
+    }
+    .steps li::before {
+      content: "0" counter(step); display: block; margin-bottom: 14px;
+      font-family: var(--font-display); font-weight: 800; color: var(--accent);
+    }
+    .steps strong { display: block; margin-bottom: 8px; font-size: 1.1rem; }
+    .steps span { color: var(--muted); font-size: 0.95rem; }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 28px; }
+    .grid article {
+      padding: 22px; border-radius: var(--radius); border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.015));
+    }
+    .grid h3 { margin: 0 0 8px; font-family: var(--font-display); font-size: 1.15rem; }
+    .grid p { margin: 0; color: var(--muted); font-size: 0.96rem; }
+    .download-card {
+      display: grid; grid-template-columns: auto 1fr; gap: 24px; align-items: start; padding: 28px;
+      border-radius: 24px; border: 1px solid var(--line);
+      background: radial-gradient(600px 200px at 0% 0%, rgba(30, 200, 193, 0.16), transparent 60%), rgba(255, 255, 255, 0.03);
+    }
+    .download-card img { border-radius: 18px; display: block; }
+    .download-card p { margin: 8px 0 18px; color: #c5d4e2; }
+    .tip { margin-top: 18px !important; max-width: 42rem; }
+    footer {
+      max-width: 1120px; margin: 0 auto; padding: 28px 24px 48px;
+      border-top: 1px solid var(--line); display: flex; justify-content: space-between;
+      gap: 20px; flex-wrap: wrap; color: var(--muted); font-size: 0.92rem;
+    }
+    footer strong { color: var(--foam); margin-right: 8px; }
+    .footer-links { display: flex; gap: 18px; }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    @media (max-width: 920px) {
+      .hero { grid-template-columns: 1fr; min-height: auto; padding-top: 48px; }
+      .hero-visual { order: -1; min-height: 340px; }
+      .steps, .grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 640px) {
+      nav a:not(.nav-github) { display: none; }
+      .steps, .grid, .download-card { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 4rem; }
+    }
+  </style>
+</head>
+<body>
+  <header class="top">
+    <a class="brand" href="#top">
+      <img src="assets/icon.png" width="36" height="36" alt="启椟" />
+      <span>启椟</span>
+    </a>
+    <nav>
+      <a href="#how">用法</a>
+      <a href="#features">功能</a>
+      <a href="#download">下载</a>
+      <a class="nav-github" href="https://github.com/langem/Kidux" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">macOS 15+ · Homebrew 驱动 · 本地优先</p>
+        <h1>启椟</h1>
+        <p class="lede">换新 Mac、重装系统、入职新公司——把几十上百款开发工具，变成选岗位、勾清单、一键装好。</p>
+        <div class="cta-row">
+          <a class="btn primary" href="https://github.com/langem/Kidux/releases/latest">下载 macOS 版</a>
+          <a class="btn ghost" href="https://github.com/langem/Kidux" target="_blank" rel="noopener">项目主页</a>
+        </div>
+        <p class="fine">免费使用 · 安装来自 Homebrew 生态 · 不内置、不分发破解软件</p>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="orb orb-a"></div>
+        <div class="orb orb-b"></div>
+        <div class="window">
+          <div class="traffic"><span></span><span></span><span></span></div>
+          <div class="window-body">
+            <img class="app-icon" src="assets/icon.png" width="96" height="96" alt="" />
+            <p class="window-brand">启椟</p>
+            <p class="window-sub">选岗位 · 逛软件 · 一键安装</p>
+            <ul class="fake-list">
+              <li><i></i> 前端工程师 Bundle</li>
+              <li><i></i> Homebrew 热门</li>
+              <li class="dim"><i></i> 环境漂移检测</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="how" id="how">
+      <h2>四步开箱</h2>
+      <p class="section-lede">不替代 Homebrew，而是把它变成对互联网岗位友好的装机流程。</p>
+      <ol class="steps">
+        <li><strong>选岗位</strong><span>前端、后端、iOS、DevOps、产品等 20 个预设 Bundle</span></li>
+        <li><strong>勾工具</strong><span>自动合并清单，CLI / GUI 分类，已安装可跳过</span></li>
+        <li><strong>一键装</strong><span>Homebrew / Cask / mas，支持镜像、重试与导出脚本</span></li>
+        <li><strong>持续发现</strong><span>750+ 精选目录 + Homebrew 全量搜索，随时补齐</span></li>
+      </ol>
+    </section>
+
+    <section class="features" id="features">
+      <h2>你真正每天会用到的</h2>
+      <div class="grid">
+        <article><h3>岗位 Bundle</h3><p>按工作角色预选常用工具，也可岗位对比、合并高级模式。</p></article>
+        <article><h3>发现与热门</h3><p>精选 Catalog、分类浏览，以及按 Homebrew 安装量的近期热门。</p></article>
+        <article><h3>已安装与更新</h3><p>扫描 brew / mas，批量升级、卸载、维护与信任修复入口。</p></article>
+        <article><h3>环境与换机</h3><p>运行时探测、漂移对比、快照导出导入，换机向导一键补齐。</p></article>
+        <article><h3>AI 助手</h3><p>自然语言描述装机需求，推荐组合并协助排查安装失败。</p></article>
+        <article><h3>双交互模式</h3><p>经典侧栏适合扫货；沉浸对话适合「帮我配环境」式提问。</p></article>
+      </div>
+    </section>
+
+    <section class="download" id="download">
+      <div class="download-card">
+        <img src="assets/icon.png" width="72" height="72" alt="启椟图标" />
+        <div>
+          <h2>下载启椟</h2>
+          <p>需要 macOS 15 或更高版本。建议从 GitHub Releases 获取已公证的 DMG。</p>
+          <div class="cta-row">
+            <a class="btn primary" href="https://github.com/langem/Kidux/releases/latest">前往 Releases</a>
+            <a class="btn ghost" href="#how">了解用法</a>
+          </div>
+          <p class="fine tip">若提示「已损坏」，多为 Gatekeeper 隔离：请使用正式签名公证包，或在系统设置 → 隐私与安全性中允许打开。</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div>
+      <strong>启椟</strong> · Kidux
+      <span>macOS 装机助手 · 显示名启椟</span>
+    </div>
+    <div class="footer-links">
+      <a href="https://github.com/langem/Kidux" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://github.com/langem/Kidux/releases" target="_blank" rel="noopener">Releases</a>
+    </div>
+  </footer>
+</body>
+</html>
