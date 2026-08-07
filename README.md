@@ -1,114 +1,88 @@
-# 启椟 · Kidux Website
+<p align="center">
+  <img src="assets/icon.png" width="128" alt="启椟" />
+</p>
 
-面向用户的 **GitHub Pages 官网**（仅静态页，不含 App 源码）。
+<h1 align="center">启椟</h1>
 
-- 产品：**启椟**（工程名 Kidux）— macOS 一键开箱装机助手  
-- 本仓库用途：宣传页 + Pages 配置说明  
-- 安装包：请放到 **GitHub Releases**，不要提交进本仓库  
+<p align="center">
+  <strong>面向互联网从业者的 macOS 一键开箱装机助手</strong><br/>
+  选岗位 · 逛软件 · 一键安装 — 底层 Homebrew，本地优先
+</p>
 
----
+<p align="center">
+  <img src="https://img.shields.io/badge/platform-macOS%2015%2B-0A7AFF" alt="macOS 15+" />
+  <img src="https://img.shields.io/badge/version-2.2.0-1ec8c1" alt="v2.2.0" />
+  <img src="https://img.shields.io/badge/license-free%20to%20use-brightgreen" alt="Free" />
+</p>
 
-## 仓库结构
-
-```text
-Kidux-Website/
-├── index.html       # 官网首页（CSS 内联，可直接双击预览）
-├── assets/
-│   └── icon.png     # 站点图标 / OG 图
-├── .nojekyll        # 让 GitHub Pages 跳过 Jekyll，原样发布静态文件
-├── .gitignore
-└── README.md
-```
-
----
-
-## 一、推到 GitHub（首次）
-
-在 GitHub 新建**空仓库**（不要勾选自动添加 README），例如：`Kidux-Website` 或 `kidux-site`。
-
-```bash
-cd Kidux-Website          # 进入本目录
-git init
-git add .
-git commit -m "Add 启椟 GitHub Pages site"
-git branch -M main
-git remote add origin https://github.com/<你的用户名>/<仓库名>.git
-git push -u origin main
-```
-
-若仓库已存在，只需改 `origin` 后 `git push`。
+<p align="center">
+  <a href="https://github.com/langem/Kidux/releases/latest"><strong>⬇ 下载 macOS 版</strong></a>
+  ·
+  <a href="./index.html">官网页面</a>
+</p>
 
 ---
 
-## 二、开启 GitHub Pages（必做）
+## 这是什么？
 
-1. 打开仓库 → **Settings** → 左侧 **Pages**
-2. **Build and deployment**
-   - **Source**：`Deploy from a branch`
-   - **Branch**：`main`
-   - **Folder**：`/ (root)` ← 根目录，不要选 `/docs`
-3. 点 **Save**
-4. 等待 1～2 分钟，页面顶部会出现访问地址，例如：
+换新 Mac、重装系统、入职新公司——总要装 Git、IDE、Docker、协作工具等几十上百款软件。
 
-   `https://<你的用户名>.github.io/<仓库名>/`
+**启椟**把这件事变成四步：
 
-5. 以后改了 `index.html` / `assets/`，`git push` 到 `main` 即可自动更新站点。
+1. **选岗位** — 前端、后端、iOS、DevOps、产品等 20 个预设 Bundle  
+2. **勾工具** — 自动合并清单，CLI / GUI 分类，已安装可跳过  
+3. **一键装** — Homebrew / Cask / Mac App Store（mas）  
+4. **持续发现** — 750+ 精选目录 + Homebrew 全量搜索  
 
-### 可选：自定义域名
-
-1. Pages 设置里填写 Domain（如 `kidux.app`）
-2. 在域名 DNS 添加 GitHub 要求的 `A` / `CNAME` 记录  
-3. 本仓库根目录可增加 `CNAME` 文件（内容只有一行域名）
+> 安装能力来自 Homebrew 生态。**不内置、不分发破解软件。**
 
 ---
 
-## 三、上传 DMG（Releases，不要进 git）
+## 适合谁？
 
-公证签名包示例：`启椟-2.2.0.dmg`
+- 换机 / 重装后的开发者、设计师、产品与运营同学  
+- 想按「岗位」快速搭齐常用工具，而不是一条条搜 brew 命令  
+- 需要团队统一装机清单、换机快照的小团队  
 
-1. 仓库页 → **Releases** → **Create a new release**
-2. Tag：如 `v2.2.0`；Title：`启椟 2.2.0`
-3. 把 DMG 拖到 **Attach binaries**
-4. Publish
-
-官网下载按钮默认指向：
-
-`https://github.com/langem/Kidux/releases/latest`
-
-若你的下载仓/用户名不同，请编辑 `index.html`，全文替换该 URL（页面里有两处「下载 / Releases」链接）。
-
-> **注意**：`*.dmg` 已写入 `.gitignore`，避免把近 10MB 安装包提交进 Pages 仓库。
+**系统要求：** macOS 15 及以上  
 
 ---
 
-## 四、本地预览
+## 主要能力
 
-```bash
-cd Kidux-Website
-open index.html
-# 或
-python3 -m http.server 8080
-# 浏览器打开 http://127.0.0.1:8080/
-```
-
----
-
-## 五、常见问题
-
-| 现象 | 处理 |
-|------|------|
-| Pages 404 | 确认 Branch=`main`、Folder=`/`，且根目录有 `index.html` |
-| 样式异常 / 空白 | 确认已推送 `.nojekyll`；刷新或清 CDN 缓存后再试 |
-| 下载 404 | Releases 里是否已上传 DMG；`index.html` 链接是否指向正确仓库 |
-| 想只当官网、源码另仓 | 正确做法：本仓只放静态页；源码仓可私有，互不影响 |
+| 模块 | 你能做什么 |
+|------|------------|
+| **岗位配置** | 按角色一键带出常用工具包，支持对比与合并 |
+| **发现** | 精选 Catalog、分类浏览、Homebrew 热门与搜索 |
+| **已安装** | 查看更新、批量升级、卸载与维护 |
+| **环境 / 换机** | 运行时探测、漂移对比、快照导出导入 |
+| **AI 助手** | 用自然语言描述需求，推荐工具并协助排查安装失败 |
+| **双模式** | 经典侧栏逛软件，或沉浸对话「帮我配环境」 |
 
 ---
 
-## 六、与 App 工程的关系
+## 下载与安装
 
-| 目录 / 仓库 | 内容 |
-|-------------|------|
-| 本仓库 `Kidux-Website` | GitHub Pages 官网 |
-| 启椟 Xcode 工程（可私有） | App 源码、`./bin/release-dmg.sh --dist` 打签名公证包 |
+1. 打开 [Releases 最新版](https://github.com/langem/Kidux/releases/latest)  
+2. 下载 **`启椟-x.x.x.dmg`**  
+3. 打开 DMG，将 **启椟** 拖入「应用程序」  
+4. 首次若被拦截：系统设置 → 隐私与安全性 → 仍要打开  
 
-重新打 DMG 后：更新 GitHub Release 附件即可，一般不必改官网 HTML（使用 `/releases/latest` 时）。
+开发机日常调试请用 Xcode；**给他人使用请下载公证后的 DMG**。
+
+---
+
+## 合规说明
+
+- 合法来源：Homebrew Formula / Cask、可选 App Store（mas）、官方脚本与官网外链引导  
+- 本地优先：API Key 等敏感信息存本机钥匙串  
+- 不收集你装机清单以外的隐私数据用于上传（可选功能均默认关闭或需你主动开启）  
+
+---
+
+## 关于本仓库
+
+本仓库是 **启椟宣传站 / GitHub Pages**，提供产品介绍与下载入口。  
+完整工程名：Kidux · 用户可见名：**启椟**  
+
+有问题或建议：请在 [Issues](https://github.com/langem/Kidux/issues) 反馈（若尚未开放 Issues，可通过 Releases 页联系维护者）。
