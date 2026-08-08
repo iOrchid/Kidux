@@ -1,0 +1,111 @@
+{
+  "id": "ai_developer",
+  "name": "AI 开发工程师",
+  "description": "AI 时代必备：Cursor / Claude Code / Codex / 本地大模型与对话客户端",
+  "readme": "# AI 开发工程师 · 新人必读\n\n## 定位\nAI 时代编码与本地/云端模型工作流：Cursor、Claude Code、Codex、Ollama、LM Studio、Aider 等。\n\n## 上手顺序\n1. Cursor 或 VS Code + AI CLI。\n2. 需要离线推理时再装 Ollama / LM Studio。\n3. 按团队规范配置 API Key（设置 → AI 助手）。\n\n## 提示\n云端 Key 仅存本机；开启「离线模式」时跳过远程调用。\n",
+  "icon": "brain.head.profile",
+  "version": "1.0.0",
+  "includes": [
+    "_base_office"
+  ],
+  "tools": [
+    {
+      "ref": "cursor",
+      "required": true
+    },
+    {
+      "ref": "claude-code",
+      "required": true
+    },
+    {
+      "ref": "codex",
+      "required": true
+    },
+    {
+      "ref": "claude",
+      "required": false
+    },
+    {
+      "ref": "visual-studio-code",
+      "required": false
+    },
+    {
+      "ref": "zed",
+      "required": false
+    },
+    {
+      "ref": "ollama",
+      "required": false
+    },
+    {
+      "ref": "lm-studio",
+      "required": false
+    },
+    {
+      "ref": "aider",
+      "required": false
+    },
+    {
+      "ref": "chatbox",
+      "required": false
+    },
+    {
+      "ref": "chatgpt",
+      "required": false
+    },
+    {
+      "ref": "jan",
+      "required": false
+    },
+    {
+      "ref": "node",
+      "required": false
+    },
+    {
+      "ref": "python",
+      "required": false
+    },
+    {
+      "ref": "iterm2",
+      "required": false
+    },
+    {
+      "ref": "warp",
+      "required": false
+    },
+    {
+      "ref": "docker",
+      "required": false
+    },
+    {
+      "ref": "git",
+      "required": false
+    },
+    {
+      "ref": "starship",
+      "required": false
+    },
+    {
+      "ref": "ripgrep",
+      "required": false
+    },
+    {
+      "ref": "fzf",
+      "required": false
+    }
+  ],
+  "postInstall": [
+    {
+      "id": "omz",
+      "name": "Oh My Zsh",
+      "script": "install_omz.sh",
+      "skipIf": "test -d \"$HOME/.oh-my-zsh\""
+    },
+    {
+      "id": "zsh-plugins",
+      "name": "Zsh 插件",
+      "script": "configure_zsh_plugins.sh",
+      "skipIf": "test -d \"$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions\""
+    }
+  ]
+}

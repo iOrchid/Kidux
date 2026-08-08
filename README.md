@@ -1,88 +1,152 @@
-<p align="center">
-  <img src="./icon.png" width="128" alt="启椟" />
-</p>
+# 启椟 · Kidux
 
-<h1 align="center">启椟·Kidux</h1>
+**面向互联网从业者的 macOS 一键开箱装机助手**  
+选岗位 · 逛软件 · 一键安装 — 底层 Homebrew，本地优先，不含破解
 
-<p align="center">
-  <strong>面向互联网从业者的 macOS 一键开箱装机助手</strong><br/>
-  选岗位 · 逛软件 · 一键安装 — 底层 Homebrew，本地优先
-</p>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/platform-macOS%2015%2B-0A7AFF" alt="macOS 15+" />
-  <img src="https://img.shields.io/badge/version-2.2.0-1ec8c1" alt="v2.2.0" />
-  <img src="https://img.shields.io/badge/license-free%20to%20use-brightgreen" alt="Free" />
-</p>
-
-<p align="center">
-  <a href="https://github.com/iOrchid/Kidux/releases/latest"><strong>⬇ 下载 macOS 版</strong></a>
-  ·
-  <a href="https://iorchid.github.io/Kidux/">官网页面</a>
-</p>
+**[⬇ 下载 macOS 版](https://github.com/iOrchid/Kidux/releases/latest)** · [官网](https://iorchid.github.io/Kidux/) · [参与贡献](CONTRIBUTING.md)
 
 ---
 
-## 这是什么？
+## 简介
 
-换新 Mac、重装系统、入职新公司——总要装 Git、IDE、Docker、协作工具等几十上百款软件。
+换新 Mac、重装系统或入职配机时，可通过岗位 Bundle 勾选工具并一键安装，亦可在发现页按需补充。
 
-**启椟**把这件事变成四步：
+安装能力基于 Homebrew / Cask，以及可选的 Mac App Store（mas）。本项目不内置、不分发破解软件。
 
-1. **选岗位** — 前端、后端、iOS、DevOps、产品等 20 个预设 Bundle  
-2. **勾工具** — 自动合并清单，CLI / GUI 分类，已安装可跳过  
-3. **一键装** — Homebrew / Cask / Mac App Store（mas）  
-4. **持续发现** — 750+ 精选目录 + Homebrew 全量搜索  
 
-> 安装能力来自 Homebrew 生态。**不内置、不分发破解软件。**
+| 用户可见名  | 工程目录     | 产物                    |
+| ------ | -------- | --------------------- |
+| **启椟** | `Kidux/` | `启椟.app`（模块名仍为 Kidux） |
 
----
-
-## 适合谁？
-
-- 换机 / 重装后的开发者、设计师、产品与运营同学  
-- 想按「岗位」快速搭齐常用工具，而不是一条条搜 brew 命令  
-- 需要团队统一装机清单、换机快照的小团队  
-
-**系统要求：** macOS 15 及以上  
 
 ---
 
-## 主要能力
+## 环境要求
 
-| 模块 | 你能做什么 |
-|------|------------|
-| **岗位配置** | 按角色一键带出常用工具包，支持对比与合并 |
-| **发现** | 精选 Catalog、分类浏览、Homebrew 热门与搜索 |
-| **已安装** | 查看更新、批量升级、卸载与维护 |
-| **环境 / 换机** | 运行时探测、漂移对比、快照导出导入 |
-| **AI 助手** | 用自然语言描述需求，推荐工具并协助排查安装失败 |
-| **双模式** | 经典侧栏逛软件，或沉浸对话「帮我配环境」 |
+- macOS 15+
+- Xcode（与工程 Swift / deployment 一致）
+- 可选：Homebrew（运行期安装能力依赖它）
+- Apple Developer 账号（本机签名运行需要；免费 Apple ID 亦可用于 Development 签名）
 
 ---
 
-## 下载与安装
 
-1. 打开 [Releases 最新版](https://github.com/iOrchid/Kidux/releases/latest)  
-2. 下载 **`启椟-x.x.x.dmg`**  
-3. 打开 DMG，将 **启椟** 拖入「应用程序」  
-4. 首次若被拦截：系统设置 → 隐私与安全性 → 仍要打开  
 
-开发机日常调试请用 Xcode；**给他人使用请下载公证后的 DMG**。
+## 配置、编译与运行
+
+
+
+### 1. 克隆并打开工程
+
+```bash
+git clone https://github.com/iOrchid/Kidux.git
+cd Kidux
+open Kidux.xcodeproj
+```
+
+
+
+### 2. 配置 Apple Team ID
+
+编辑 `[Kidux/Config/Signing.xcconfig](Kidux/Config/Signing.xcconfig)`：
+
+```xcconfig
+DEVELOPMENT_TEAM = YOUR_TEAM_ID
+```
+
+Team ID 可在 [Apple Developer Membership](https://developer.apple.com/account) 或 Xcode → Settings → Accounts → 选中 Team 后查看。
+
+也可对照 `[Kidux/Config/Signing.xcconfig.example](Kidux/Config/Signing.xcconfig.example)`。
+
+在 Xcode 中确认三个 Target（`Kidux` / `KiduxShareExtension` / `KiduxWidgets`）的 Signing 均选择同一 Team。
+
+### 3. 配置仓库相关 URL（可选）
+
+应用内更新检测、AI 模型列表、Sparkle appcast 等地址集中在：
+
+`[Kidux/Config/RepositoryConfig.swift](Kidux/Config/RepositoryConfig.swift)`
+
+Fork 后若使用自己的 GitHub 仓库，请修改其中的 `owner` / `name` / `defaultBranch`，并同步更新：
+
+- `Kidux/Config/Signing.xcconfig` 中的 `INFOPLIST_KEY_SUFeedURL`
+- 仓库内 `bin/appcast.xml`、`data/ai-model-catalog.json`（若仍通过 raw 对外提供）
+
+
+
+### 4. 编译运行
+
+**Xcode：** 选择 scheme `Kidux`，按 ⌘R 运行。
+
+**命令行：**
+
+```bash
+xcodebuild -project Kidux.xcodeproj -scheme Kidux \
+  -configuration Debug -derivedDataPath ./build/DerivedData build
+```
+
+预编译安装包见 [Releases](https://github.com/iOrchid/Kidux/releases)。
 
 ---
 
-## 合规说明
 
-- 合法来源：Homebrew Formula / Cask、可选 App Store（mas）、官方脚本与官网外链引导  
-- 本地优先：API Key 等敏感信息存本机钥匙串  
-- 不收集你装机清单以外的隐私数据用于上传（可选功能均默认关闭或需你主动开启）  
+
+## 卸载与反馈
+
+1. 界面无响应时，可强制退出「启椟」（⌥⌘⎋）；活动监视器中如有残留 `brew` 进程可结束。
+2. 卸载应用：将「启椟」拖到废纸篓。
+3. 可选清理本应用数据（不会卸载已通过 Homebrew 安装的软件）：
+
+```text
+~/Library/Application Support/Kidux
+```
+
+1. Bug 与功能请求请使用 [Issues](https://github.com/iOrchid/Kidux/issues)；用法讨论见 [Discussions](https://github.com/iOrchid/Kidux/discussions)。
 
 ---
 
-## 关于本仓库
 
-本仓库是 **启椟宣传站 / GitHub Pages**，提供产品介绍与下载入口。  
-完整工程名：Kidux · 用户可见名：**启椟**  
 
-有问题或建议：请在 [Issues](https://github.com/iOrchid/Kidux/issues) 反馈（若尚未开放 Issues，可通过 Releases 页联系维护者）。
+<a id="sponsor"></a>
+
+## 来杯咖啡 ☕️ 💗
+
+若本项目对你有帮助，欢迎 Star✨；也欢迎请作者喝杯咖啡，支持持续维护：
+
+![donation](docs/images/donation.svg)
+
+| 微信赞赏 | 支付宝 |
+| :---: | :---: |
+| ![微信赞赏](docs/images/admireCode.png) | ![支付宝](docs/images/alipay2QR.png) |
+
+---
+
+
+
+## License
+
+[MIT](LICENSE)
+
+```text
+MIT License
+
+Copyright (c) 2026 Kidux
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
+

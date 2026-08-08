@@ -1,0 +1,111 @@
+{
+  "id": "sre_engineer",
+  "name": "SRE / 平台工程师",
+  "description": "可观测性、K8s、SLA、自动化运维",
+  "readme": "# SRE / 平台工程师 · 新人必读\n\n## 上手顺序\n1. 可观测性客户端与 kubectl。\n2. 基础设施即代码 CLI（按 Terraform / Ansible 等）。\n3. 压测与故障演练工具按需。\n\n## 提示\n优先保证「只读」观测工具可用，再装变更类工具。\n",
+  "icon": "gauge.with.dots.needle.67percent",
+  "version": "1.0.0",
+  "includes": [
+    "_base_office"
+  ],
+  "tools": [
+    {
+      "ref": "docker",
+      "required": false
+    },
+    {
+      "ref": "colima",
+      "required": false
+    },
+    {
+      "ref": "kubernetes-cli",
+      "required": false
+    },
+    {
+      "ref": "helm",
+      "required": false
+    },
+    {
+      "ref": "k9s",
+      "required": false
+    },
+    {
+      "ref": "minikube",
+      "required": false
+    },
+    {
+      "ref": "terraform",
+      "required": false
+    },
+    {
+      "ref": "pulumi",
+      "required": false
+    },
+    {
+      "ref": "ansible",
+      "required": false
+    },
+    {
+      "ref": "prometheus",
+      "required": false
+    },
+    {
+      "ref": "grafana",
+      "required": false
+    },
+    {
+      "ref": "vault",
+      "required": false
+    },
+    {
+      "ref": "consul",
+      "required": false
+    },
+    {
+      "ref": "awscli",
+      "required": false
+    },
+    {
+      "ref": "google-cloud-sdk",
+      "required": false
+    },
+    {
+      "ref": "azure-cli",
+      "required": false
+    },
+    {
+      "ref": "go",
+      "required": false
+    },
+    {
+      "ref": "python",
+      "required": false
+    },
+    {
+      "ref": "visual-studio-code",
+      "required": false
+    },
+    {
+      "ref": "starship",
+      "required": false
+    },
+    {
+      "ref": "tmux",
+      "required": false
+    }
+  ],
+  "postInstall": [
+    {
+      "id": "omz",
+      "name": "Oh My Zsh",
+      "script": "install_omz.sh",
+      "skipIf": "test -d \"$HOME/.oh-my-zsh\""
+    },
+    {
+      "id": "starship",
+      "name": "Starship 提示符",
+      "script": "configure_starship.sh",
+      "skipIf": "grep -q 'starship init zsh' \"$HOME/.zshrc\" 2>/dev/null"
+    }
+  ]
+}

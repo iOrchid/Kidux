@@ -1,0 +1,26 @@
+{
+  "id": "_base_office",
+  "name": "通用办公基线",
+  "description": "所有岗位共享的基础办公与协作工具",
+  "icon": "briefcase",
+  "version": "1.1.0",
+  "includes": ["_efficiency_enhancement"],
+  "tools": [
+    { "ref": "git", "required": true },
+    { "ref": "gh", "required": false },
+    { "ref": "iterm2", "required": false },
+    { "ref": "google-chrome", "required": false },
+    { "ref": "firefox", "required": false },
+    { "ref": "visual-studio-code", "required": false },
+    { "ref": "sublime-text", "required": false },
+    { "ref": "wechat", "required": false },
+    { "ref": "qq", "required": false },
+    { "ref": "slack", "required": false },
+    { "ref": "feishu", "required": false },
+    { "ref": "typora", "required": false },
+    { "ref": "obsidian", "required": false },
+    { "ref": "notion", "required": false },
+    { "ref": "raycast", "required": false },
+    { "ref": "microsoft-office", "required": false }
+  ]
+}

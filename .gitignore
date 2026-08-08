@@ -1,5 +1,47 @@
-# 本地预览用；大体积安装包请上传到 GitHub Releases，勿提交
-*.dmg
+# Xcode / build
+build/
+DerivedData/
+*.xcodeproj/xcuserdata/
+*.xcworkspace/xcuserdata/
+xcuserdata/
+.swiftpm/
+Package.resolved
+Tools/KiduxCLI/.build/
+
+# macOS
 .DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+
+# Archives & artifacts — upload installers via GitHub Releases
+*.ipa
+*.dSYM.zip
+*.dSYM
+*.app
+*.dmg
+
+# Secrets & local-only
+.env
+.env.*
+*.pem
+*.p12
+secrets/
+bin/release-config.sh
+Kidux/Config/Debug-AdHoc.xcconfig
+docs/key/
+
+# Sparkle CLI binaries (install locally; private key stays in Keychain)
+Tools/Sparkle/generate_keys
+Tools/Sparkle/sign_update
+
+# Local caches / exports
+exports/
+data/cache/
+
+# IDE
 .idea/
 .vscode/
+*.swp
+*~

@@ -1,0 +1,84 @@
+{
+  "references": [
+    {
+      "id": "bettertouchtool",
+      "name": "BetterTouchTool",
+      "communityNote": "xclient 热门 · 触控板/窗口管理",
+      "officialCatalogID": "bettertouchtool",
+      "officialName": "BetterTouchTool",
+      "homepage": "https://folivora.ai/"
+    },
+    {
+      "id": "typora",
+      "name": "Typora",
+      "communityNote": "Markdown 编辑器",
+      "officialCatalogID": "typora",
+      "officialName": "Typora",
+      "homepage": "https://typora.io/"
+    },
+    {
+      "id": "cleanshot-x",
+      "name": "CleanShot X",
+      "communityNote": "截图标注 · 社区常见",
+      "officialCatalogID": "cleanshot",
+      "officialName": "CleanShot X",
+      "homepage": "https://cleanshot.com/"
+    },
+    {
+      "id": "parallels",
+      "name": "Parallels Desktop",
+      "communityNote": "虚拟机",
+      "officialCatalogID": "parallels",
+      "officialName": "Parallels Desktop",
+      "homepage": "https://www.parallels.com/"
+    },
+    {
+      "id": "marked",
+      "name": "Marked 2",
+      "communityNote": "Markdown 预览",
+      "officialCatalogID": "marked",
+      "officialName": "Marked 2",
+      "homepage": "https://marked2app.com/"
+    },
+    {
+      "id": "pulltube",
+      "name": "PullTube",
+      "communityNote": "视频下载",
+      "officialCatalogID": "pulltube",
+      "officialName": "PullTube",
+      "homepage": "https://pulltube.app/"
+    },
+    {
+      "id": "noteplan",
+      "name": "NotePlan",
+      "communityNote": "笔记 / 日程",
+      "officialCatalogID": "noteplan",
+      "officialName": "NotePlan",
+      "homepage": "https://noteplan.co/"
+    },
+    {
+      "id": "superwhisper",
+      "name": "Superwhisper",
+      "communityNote": "本地语音转文字",
+      "officialCatalogID": "superwhisper",
+      "officialName": "Superwhisper",
+      "homepage": "https://superwhisper.com/"
+    },
+    {
+      "id": "raycast",
+      "name": "Raycast",
+      "communityNote": "开源替代品：Alfred / Raycast 均有 brew",
+      "officialCatalogID": "raycast",
+      "officialName": "Raycast",
+      "homepage": "https://raycast.com/"
+    },
+    {
+      "id": "rectangle",
+      "name": "Rectangle",
+      "communityNote": "开源窗口管理 · 替代 Magnet",
+      "officialCatalogID": "rectangle",
+      "officialName": "Rectangle",
+      "homepage": "https://rectangleapp.com/"
+    }
+  ]
+}

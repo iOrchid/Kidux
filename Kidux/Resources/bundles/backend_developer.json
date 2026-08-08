@@ -1,0 +1,105 @@
+{
+  "id": "backend_developer",
+  "name": "后端工程师",
+  "description": "服务端、数据库与 API 开发环境",
+  "readme": "# 后端工程师 · 新人必读\n\n## 重点\n服务端运行时、数据库客户端与 Docker 本地联调。\n\n## 上手顺序\n1. Git + 编辑器 / IDE。\n2. Docker Desktop（本地依赖服务）。\n3. 数据库 GUI 与 API 调试。\n4. 语言运行时按栈选择（见 Java / Python / Go Bundle）。\n\n## 提示\n安装后在「维护 → 后台服务」检查 mysql/redis 等 brew services。\n",
+  "icon": "server.rack",
+  "version": "1.0.0",
+  "includes": [
+    "_base_office"
+  ],
+  "tools": [
+    {
+      "ref": "docker",
+      "required": false
+    },
+    {
+      "ref": "postman",
+      "required": false
+    },
+    {
+      "ref": "insomnia",
+      "required": false
+    },
+    {
+      "ref": "mysql",
+      "required": false
+    },
+    {
+      "ref": "postgresql",
+      "required": false
+    },
+    {
+      "ref": "redis",
+      "required": false
+    },
+    {
+      "ref": "dbeaver-community",
+      "required": false
+    },
+    {
+      "ref": "go",
+      "required": false
+    },
+    {
+      "ref": "python",
+      "required": false
+    },
+    {
+      "ref": "pyenv",
+      "required": false
+    },
+    {
+      "ref": "intellij-idea",
+      "required": false
+    },
+    {
+      "ref": "visual-studio-code",
+      "required": false
+    },
+    {
+      "ref": "cursor",
+      "required": false
+    },
+    {
+      "ref": "starship",
+      "required": false
+    },
+    {
+      "ref": "tmux",
+      "required": false
+    },
+    {
+      "ref": "fzf",
+      "required": false
+    },
+    {
+      "ref": "ripgrep",
+      "required": false
+    },
+    {
+      "ref": "bat",
+      "required": false
+    }
+  ],
+  "postInstall": [
+    {
+      "id": "omz",
+      "name": "Oh My Zsh",
+      "script": "install_omz.sh",
+      "skipIf": "test -d \"$HOME/.oh-my-zsh\""
+    },
+    {
+      "id": "zsh-plugins",
+      "name": "Zsh 插件",
+      "script": "configure_zsh_plugins.sh",
+      "skipIf": "test -d \"$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions\""
+    },
+    {
+      "id": "starship",
+      "name": "Starship 提示符",
+      "script": "configure_starship.sh",
+      "skipIf": "grep -q 'starship init zsh' \"$HOME/.zshrc\" 2>/dev/null"
+    }
+  ]
+}

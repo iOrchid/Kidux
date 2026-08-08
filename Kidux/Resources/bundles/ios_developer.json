@@ -1,0 +1,109 @@
+{
+  "id": "ios_developer",
+  "name": "iOS 开发工程师",
+  "description": "Xcode、Swift 工具链、真机调试与抓包",
+  "readme": "# iOS 开发工程师 · 新人必读\n\n## 上手顺序\n1. 从 App Store 安装 Xcode（体积大，预留磁盘）。\n2. 命令行工具与 Homebrew。\n3. 抓包 / 模拟器辅助工具按需。\n\n## 注意\n- 真机调试需 Apple 开发者账号与证书。\n- CocoaPods / SPM 依赖请在项目目录自行解析。\n",
+  "icon": "apple.logo",
+  "version": "1.1.0",
+  "includes": [
+    "_base_office"
+  ],
+  "tools": [
+    {
+      "ref": "xcode",
+      "required": false
+    },
+    {
+      "ref": "xcodes",
+      "required": false
+    },
+    {
+      "ref": "sf-symbols",
+      "required": false
+    },
+    {
+      "ref": "swift",
+      "required": false
+    },
+    {
+      "ref": "swiftlint",
+      "required": false
+    },
+    {
+      "ref": "swiftformat",
+      "required": false
+    },
+    {
+      "ref": "cocoapods",
+      "required": false
+    },
+    {
+      "ref": "fastlane",
+      "required": false
+    },
+    {
+      "ref": "ios-deploy",
+      "required": false
+    },
+    {
+      "ref": "proxyman",
+      "required": false
+    },
+    {
+      "ref": "charles",
+      "required": false
+    },
+    {
+      "ref": "cursor",
+      "required": false
+    },
+    {
+      "ref": "docker",
+      "required": false
+    },
+    {
+      "ref": "postman",
+      "required": false
+    },
+    {
+      "ref": "node",
+      "required": false
+    },
+    {
+      "ref": "starship",
+      "required": false
+    },
+    {
+      "ref": "fzf",
+      "required": false
+    },
+    {
+      "ref": "ripgrep",
+      "required": false
+    },
+    {
+      "ref": "lazygit",
+      "required": false
+    }
+  ],
+  "postInstall": [
+    {
+      "id": "omz",
+      "name": "Oh My Zsh",
+      "script": "install_omz.sh",
+      "skipIf": "test -d \"$HOME/.oh-my-zsh\""
+    },
+    {
+      "id": "zsh-plugins",
+      "name": "Zsh 插件",
+      "script": "configure_zsh_plugins.sh",
+      "skipIf": "test -d \"$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions\""
+    },
+    {
+      "id": "starship",
+      "name": "Starship 提示符",
+      "script": "configure_starship.sh",
+      "skipIf": "grep -q 'starship init zsh' \"$HOME/.zshrc\" 2>/dev/null"
+    }
+  ]
+}

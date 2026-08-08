@@ -1,0 +1,91 @@
+{
+  "id": "devops_engineer",
+  "name": "DevOps / SRE",
+  "description": "容器、CI/CD、监控与基础设施",
+  "readme": "# DevOps / SRE · 新人必读\n\n## 上手顺序\n1. Docker + kubectl / helm（按集群）。\n2. 终端增强与密钥工具。\n3. 监控 / 日志客户端按公司栈。\n\n## 提示\nkubeconfig 与云厂商 CLI 凭据勿提交到公开仓库。\n",
+  "icon": "gearshape.2",
+  "version": "1.0.0",
+  "includes": [
+    "_base_office"
+  ],
+  "tools": [
+    {
+      "ref": "docker",
+      "required": false
+    },
+    {
+      "ref": "visual-studio-code",
+      "required": false
+    },
+    {
+      "ref": "cursor",
+      "required": false
+    },
+    {
+      "ref": "iterm2",
+      "required": false
+    },
+    {
+      "ref": "postman",
+      "required": false
+    },
+    {
+      "ref": "insomnia",
+      "required": false
+    },
+    {
+      "ref": "mysql",
+      "required": false
+    },
+    {
+      "ref": "postgresql",
+      "required": false
+    },
+    {
+      "ref": "redis",
+      "required": false
+    },
+    {
+      "ref": "dbeaver-community",
+      "required": false
+    },
+    {
+      "ref": "go",
+      "required": false
+    },
+    {
+      "ref": "python",
+      "required": false
+    },
+    {
+      "ref": "tmux",
+      "required": false
+    },
+    {
+      "ref": "starship",
+      "required": false
+    },
+    {
+      "ref": "ripgrep",
+      "required": false
+    },
+    {
+      "ref": "bat",
+      "required": false
+    }
+  ],
+  "postInstall": [
+    {
+      "id": "omz",
+      "name": "Oh My Zsh",
+      "script": "install_omz.sh",
+      "skipIf": "test -d \"$HOME/.oh-my-zsh\""
+    },
+    {
+      "id": "starship",
+      "name": "Starship 提示符",
+      "script": "configure_starship.sh",
+      "skipIf": "grep -q 'starship init zsh' \"$HOME/.zshrc\" 2>/dev/null"
+    }
+  ]
+}

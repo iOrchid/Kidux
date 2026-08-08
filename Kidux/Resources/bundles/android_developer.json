@@ -1,0 +1,109 @@
+{
+  "id": "android_developer",
+  "name": "Android 开发工程师",
+  "description": "Android Studio、SDK、模拟器与移动端调试",
+  "readme": "# Android 开发工程师 · 新人必读\n\n## 上手顺序\n1. Android Studio + SDK。\n2. 模拟器镜像（首次较大）。\n3. 可选：抓包与设备调试工具。\n\n## 提示\nANDROID_HOME / cmdline-tools 路径需写入 shell profile。\n",
+  "icon": "apps.iphone",
+  "version": "1.1.0",
+  "includes": [
+    "_base_office"
+  ],
+  "tools": [
+    {
+      "ref": "android-studio",
+      "required": false
+    },
+    {
+      "ref": "android-ndk",
+      "required": false
+    },
+    {
+      "ref": "visual-studio-code",
+      "required": false
+    },
+    {
+      "ref": "cursor",
+      "required": false
+    },
+    {
+      "ref": "intellij-idea",
+      "required": false
+    },
+    {
+      "ref": "openjdk@21",
+      "required": false
+    },
+    {
+      "ref": "scrcpy",
+      "required": false
+    },
+    {
+      "ref": "proxyman",
+      "required": false
+    },
+    {
+      "ref": "charles",
+      "required": false
+    },
+    {
+      "ref": "docker",
+      "required": false
+    },
+    {
+      "ref": "postman",
+      "required": false
+    },
+    {
+      "ref": "node",
+      "required": false
+    },
+    {
+      "ref": "nvm",
+      "required": false
+    },
+    {
+      "ref": "kotlin",
+      "required": false
+    },
+    {
+      "ref": "gradle",
+      "required": false
+    },
+    {
+      "ref": "starship",
+      "required": false
+    },
+    {
+      "ref": "fzf",
+      "required": false
+    },
+    {
+      "ref": "ripgrep",
+      "required": false
+    },
+    {
+      "ref": "lazygit",
+      "required": false
+    }
+  ],
+  "postInstall": [
+    {
+      "id": "omz",
+      "name": "Oh My Zsh",
+      "script": "install_omz.sh",
+      "skipIf": "test -d \"$HOME/.oh-my-zsh\""
+    },
+    {
+      "id": "zsh-plugins",
+      "name": "Zsh 插件",
+      "script": "configure_zsh_plugins.sh",
+      "skipIf": "test -d \"$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions\""
+    },
+    {
+      "id": "starship",
+      "name": "Starship 提示符",
+      "script": "configure_starship.sh",
+      "skipIf": "grep -q 'starship init zsh' \"$HOME/.zshrc\" 2>/dev/null"
+    }
+  ]
+}

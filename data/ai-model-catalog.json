@@ -1,0 +1,138 @@
+{
+  "version": 4,
+  "updatedAt": "2026-08-07",
+  "providers": {
+    "siliconFlow": {
+      "defaultModel": "deepseek-ai/DeepSeek-V4-Pro",
+      "models": [
+        { "id": "deepseek-ai/DeepSeek-V4-Pro", "name": "DeepSeek V4 Pro" },
+        { "id": "deepseek-ai/DeepSeek-V4-Flash", "name": "DeepSeek V4 Flash" },
+        { "id": "deepseek-ai/DeepSeek-V3.2", "name": "DeepSeek V3.2" },
+        { "id": "deepseek-ai/DeepSeek-R1", "name": "DeepSeek R1" },
+        { "id": "Qwen/Qwen3-32B", "name": "Qwen3 32B" },
+        { "id": "Qwen/Qwen3-14B", "name": "Qwen3 14B" },
+        { "id": "Qwen/Qwen3-8B", "name": "Qwen3 8B" },
+        { "id": "zai-org/GLM-4.7", "name": "GLM-4.7" },
+        { "id": "zai-org/GLM-4.6", "name": "GLM-4.6" },
+        { "id": "zai-org/GLM-4.5-Air", "name": "GLM-4.5 Air" }
+      ]
+    },
+    "deepseek": {
+      "defaultModel": "deepseek-v4-pro",
+      "models": [
+        { "id": "deepseek-v4-pro", "name": "DeepSeek V4 Pro" },
+        { "id": "deepseek-v4-flash", "name": "DeepSeek V4 Flash" }
+      ]
+    },
+    "dashscope": {
+      "defaultModel": "qwen-plus",
+      "models": [
+        { "id": "qwen-plus", "name": "Qwen Plus" },
+        { "id": "qwen-max", "name": "Qwen Max" },
+        { "id": "qwen-turbo", "name": "Qwen Turbo" },
+        { "id": "qwen-long", "name": "Qwen Long" },
+        { "id": "qwq-plus", "name": "QwQ Plus" },
+        { "id": "qwen3-coder-plus", "name": "Qwen3 Coder Plus" }
+      ]
+    },
+    "doubao": {
+      "defaultModel": "doubao-seed-1-6-250615",
+      "models": [
+        { "id": "doubao-seed-1-6-250615", "name": "豆包 Seed 1.6" },
+        { "id": "doubao-seed-1-6-flash-250615", "name": "豆包 Seed 1.6 Flash" },
+        { "id": "doubao-1-5-pro-32k-250115", "name": "豆包 1.5 Pro 32K" },
+        { "id": "doubao-1-5-lite-32k-250115", "name": "豆包 1.5 Lite 32K" }
+      ]
+    },
+    "moonshot": {
+      "defaultModel": "kimi-latest",
+      "models": [
+        { "id": "kimi-latest", "name": "Kimi Latest" },
+        { "id": "moonshot-v1-128k", "name": "Moonshot V1 128K" },
+        { "id": "moonshot-v1-32k", "name": "Moonshot V1 32K" },
+        { "id": "moonshot-v1-8k", "name": "Moonshot V1 8K" }
+      ]
+    },
+    "hunyuan": {
+      "defaultModel": "hunyuan-turbos-latest",
+      "models": [
+        { "id": "hunyuan-turbos-latest", "name": "混元 TurboS" },
+        { "id": "hunyuan-t1-latest", "name": "混元 T1" },
+        { "id": "hunyuan-large", "name": "混元 Large" },
+        { "id": "hunyuan-standard", "name": "混元 Standard" },
+        { "id": "hunyuan-lite", "name": "混元 Lite" }
+      ]
+    },
+    "minimax": {
+      "defaultModel": "MiniMax-Text-01",
+      "models": [
+        { "id": "MiniMax-Text-01", "name": "MiniMax Text 01" },
+        { "id": "MiniMax-M1", "name": "MiniMax M1" }
+      ]
+    },
+    "zhipu": {
+      "defaultModel": "glm-4.5-flash",
+      "models": [
+        { "id": "glm-4.5", "name": "GLM-4.5" },
+        { "id": "glm-4.5-air", "name": "GLM-4.5 Air" },
+        { "id": "glm-4.5-flash", "name": "GLM-4.5 Flash" },
+        { "id": "glm-4-plus", "name": "GLM-4 Plus" },
+        { "id": "glm-4-air", "name": "GLM-4 Air" }
+      ]
+    },
+    "openAI": {
+      "defaultModel": "gpt-5.6",
+      "models": [
+        { "id": "gpt-5.6", "name": "GPT-5.6（Sol）" },
+        { "id": "gpt-5.6-sol", "name": "GPT-5.6 Sol" },
+        { "id": "gpt-5.6-terra", "name": "GPT-5.6 Terra" },
+        { "id": "gpt-5.6-luna", "name": "GPT-5.6 Luna" }
+      ]
+    },
+    "anthropic": {
+      "defaultModel": "claude-sonnet-5",
+      "models": [
+        { "id": "claude-sonnet-5", "name": "Claude Sonnet 5" },
+        { "id": "claude-opus-4-8", "name": "Claude Opus 4.8" },
+        { "id": "claude-haiku-4-5", "name": "Claude Haiku 4.5" }
+      ]
+    },
+    "google": {
+      "defaultModel": "gemini-2.5-pro",
+      "models": [
+        { "id": "gemini-2.5-pro", "name": "Gemini 2.5 Pro" },
+        { "id": "gemini-2.5-flash", "name": "Gemini 2.5 Flash" },
+        { "id": "gemini-2.0-flash", "name": "Gemini 2.0 Flash" }
+      ]
+    },
+    "custom": {
+      "defaultModel": "gpt-5.6",
+      "models": [
+        { "id": "gpt-5.6", "name": "GPT-5.6（Sol）" },
+        { "id": "claude-sonnet-5", "name": "Claude Sonnet 5" },
+        { "id": "gemini-2.5-pro", "name": "Gemini 2.5 Pro" },
+        { "id": "kimi-latest", "name": "Kimi Latest" }
+      ]
+    }
+  },
+  "migrations": {
+    "deepseek-chat": "deepseek-v4-flash",
+    "deepseek-reasoner": "deepseek-v4-pro",
+    "deepseek-ai/DeepSeek-V3": "deepseek-ai/DeepSeek-V4-Pro",
+    "deepseek-ai/DeepSeek-V3.2": "deepseek-ai/DeepSeek-V4-Pro",
+    "gpt-4o": "gpt-5.6",
+    "gpt-4o-mini": "gpt-5.6-luna",
+    "gpt-4.1": "gpt-5.6",
+    "gpt-4.1-mini": "gpt-5.6-terra",
+    "o4-mini": "gpt-5.6-luna",
+    "claude-sonnet-4-20250514": "claude-sonnet-5",
+    "claude-3-5-haiku-20241022": "claude-haiku-4-5",
+    "doubao-pro-32k": "doubao-seed-1-6-250615",
+    "doubao-lite-32k": "doubao-seed-1-6-flash-250615",
+    "abab6.5s-chat": "MiniMax-Text-01",
+    "abab6.5g-chat": "MiniMax-M1",
+    "glm-4-flash": "glm-4.5-flash",
+    "moonshot-v1-auto": "kimi-latest",
+    "kimi-k2.5": "kimi-latest"
+  }
+}

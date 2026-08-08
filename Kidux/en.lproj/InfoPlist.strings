@@ -1,0 +1,3 @@
+/* Keep Chinese product name in Dock / Finder even on English locale */
+"CFBundleDisplayName" = "启椟";
+"CFBundleName" = "启椟";

@@ -1,0 +1,75 @@
+{
+  "id": "frontend_developer",
+  "name": "前端工程师",
+  "description": "Web 前端、浏览器调试与 Node 生态",
+  "readme": "# 前端工程师 · 新人必读\n\n## 必装逻辑\nNode 运行时 + 现代编辑器 + 浏览器调试三件套。\n\n## 上手顺序\n1. Homebrew → Git → Node / nvm。\n2. VS Code 或 Cursor。\n3. Chrome / Firefox 与 API 调试（Postman 等）。\n4. 可选：Docker、Figma、终端增强（starship / fzf）。\n\n## 常见坑\n- nvm 与系统 Node 冲突时，以项目 `.nvmrc` 为准。\n- 公司私有源需另行配置 npm registry。\n",
+  "icon": "globe",
+  "version": "1.0.0",
+  "includes": [
+    "_base_office"
+  ],
+  "tools": [
+    {
+      "ref": "visual-studio-code",
+      "required": false
+    },
+    {
+      "ref": "cursor",
+      "required": false
+    },
+    {
+      "ref": "google-chrome",
+      "required": false
+    },
+    {
+      "ref": "firefox",
+      "required": false
+    },
+    {
+      "ref": "node",
+      "required": false
+    },
+    {
+      "ref": "nvm",
+      "required": false
+    },
+    {
+      "ref": "docker",
+      "required": false
+    },
+    {
+      "ref": "postman",
+      "required": false
+    },
+    {
+      "ref": "figma",
+      "required": false
+    },
+    {
+      "ref": "starship",
+      "required": false
+    },
+    {
+      "ref": "fzf",
+      "required": false
+    },
+    {
+      "ref": "ripgrep",
+      "required": false
+    }
+  ],
+  "postInstall": [
+    {
+      "id": "omz",
+      "name": "Oh My Zsh",
+      "script": "install_omz.sh",
+      "skipIf": "test -d \"$HOME/.oh-my-zsh\""
+    },
+    {
+      "id": "zsh-plugins",
+      "name": "Zsh 插件",
+      "script": "configure_zsh_plugins.sh",
+      "skipIf": "test -d \"$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions\""
+    }
+  ]
+}

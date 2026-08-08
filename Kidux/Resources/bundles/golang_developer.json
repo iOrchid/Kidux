@@ -1,0 +1,105 @@
+{
+  "id": "golang_developer",
+  "name": "Go 工程师",
+  "description": "Go、GoLand、微服务、云原生开发",
+  "readme": "# Go 工程师 · 新人必读\n\n## 上手顺序\n1. Go toolchain。\n2. GoLand / VS Code + gopls。\n3. Docker 与云原生相关 CLI（按需）。\n\n## 提示\n设置 `GOPROXY`（国内常用 goproxy.cn）可显著加速模块下载。\n",
+  "icon": "hare.fill",
+  "version": "1.0.0",
+  "includes": [
+    "_base_office"
+  ],
+  "tools": [
+    {
+      "ref": "go",
+      "required": false
+    },
+    {
+      "ref": "goland",
+      "required": false
+    },
+    {
+      "ref": "visual-studio-code",
+      "required": false
+    },
+    {
+      "ref": "docker",
+      "required": false
+    },
+    {
+      "ref": "colima",
+      "required": false
+    },
+    {
+      "ref": "kubernetes-cli",
+      "required": false
+    },
+    {
+      "ref": "helm",
+      "required": false
+    },
+    {
+      "ref": "terraform",
+      "required": false
+    },
+    {
+      "ref": "postman",
+      "required": false
+    },
+    {
+      "ref": "mysql",
+      "required": false
+    },
+    {
+      "ref": "postgresql",
+      "required": false
+    },
+    {
+      "ref": "redis",
+      "required": false
+    },
+    {
+      "ref": "protobuf",
+      "required": false
+    },
+    {
+      "ref": "starship",
+      "required": false
+    },
+    {
+      "ref": "fzf",
+      "required": false
+    },
+    {
+      "ref": "ripgrep",
+      "required": false
+    },
+    {
+      "ref": "lazygit",
+      "required": false
+    },
+    {
+      "ref": "tmux",
+      "required": false
+    }
+  ],
+  "postInstall": [
+    {
+      "id": "omz",
+      "name": "Oh My Zsh",
+      "script": "install_omz.sh",
+      "skipIf": "test -d \"$HOME/.oh-my-zsh\""
+    },
+    {
+      "id": "zsh-plugins",
+      "name": "Zsh 插件",
+      "script": "configure_zsh_plugins.sh",
+      "skipIf": "test -d \"$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions\""
+    },
+    {
+      "id": "starship",
+      "name": "Starship 提示符",
+      "script": "configure_starship.sh",
+      "skipIf": "grep -q 'starship init zsh' \"$HOME/.zshrc\" 2>/dev/null"
+    }
+  ]
+}

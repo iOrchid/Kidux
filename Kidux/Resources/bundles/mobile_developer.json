@@ -1,0 +1,71 @@
+{
+  "id": "mobile_developer",
+  "name": "移动端工程师（双端）",
+  "description": "iOS + Android 双端移动开发环境",
+  "readme": "# 移动端工程师（双端）· 新人必读\n\n## 定位\n同时覆盖 iOS + Android 基线工具；磁盘压力大，建议按当前项目取消一端。\n\n## 上手顺序\n1. 先装当前主端（Xcode 或 Android Studio）。\n2. 再补交叉调试与抓包工具。\n3. 可选 Flutter / RN 运行时按技术栈另加。\n",
+  "icon": "iphone.and.arrow.forward",
+  "version": "1.0.0",
+  "includes": [
+    "_base_office"
+  ],
+  "tools": [
+    {
+      "ref": "xcode",
+      "required": false
+    },
+    {
+      "ref": "android-studio",
+      "required": false
+    },
+    {
+      "ref": "visual-studio-code",
+      "required": false
+    },
+    {
+      "ref": "cursor",
+      "required": false
+    },
+    {
+      "ref": "proxyman",
+      "required": false
+    },
+    {
+      "ref": "charles",
+      "required": false
+    },
+    {
+      "ref": "docker",
+      "required": false
+    },
+    {
+      "ref": "postman",
+      "required": false
+    },
+    {
+      "ref": "node",
+      "required": false
+    },
+    {
+      "ref": "nvm",
+      "required": false
+    },
+    {
+      "ref": "sf-symbols",
+      "required": false
+    }
+  ],
+  "postInstall": [
+    {
+      "id": "omz",
+      "name": "Oh My Zsh",
+      "script": "install_omz.sh",
+      "skipIf": "test -d \"$HOME/.oh-my-zsh\""
+    },
+    {
+      "id": "iterm2-theme",
+      "name": "iTerm2 Dracula 配色",
+      "script": "import_iterm2_theme.sh",
+      "skipIf": "test -f \"$HOME/.macdevtools/iterm2-themes/Dracula.itermcolors\""
+    }
+  ]
+}

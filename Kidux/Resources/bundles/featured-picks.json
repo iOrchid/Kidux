@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "sections": [
+    {
+      "id": "efficiency",
+      "title": "效率必备",
+      "subtitle": "装机后最值得先装",
+      "tool_ids": ["raycast", "rectangle", "stats", "maccy", "jordanbaird-ice", "pearcleaner", "monitorcontrol", "alt-tab"]
+    },
+    {
+      "id": "dev-starter",
+      "title": "开发起步",
+      "subtitle": "终端 · 编辑器 · 容器",
+      "tool_ids": ["iterm2", "visual-studio-code", "cursor", "docker", "warp"]
+    },
+    {
+      "id": "ai-essentials",
+      "title": "AI 时代必备",
+      "subtitle": "编辑器 · Agent CLI · 本地大模型",
+      "tool_ids": ["cursor", "claude-code", "codex", "ollama", "lm-studio", "claude", "aider", "chatbox"]
+    },
+    {
+      "id": "design-product",
+      "title": "设计 · 产品",
+      "subtitle": "协作与创作工具",
+      "tool_ids": ["figma", "sketch", "obsidian", "notion", "cleanshot-x"]
+    },
+    {
+      "id": "open-source",
+      "title": "开源精选",
+      "subtitle": "参考 Best-App / awesome-mac 策展",
+      "tool_ids": ["stats", "maccy", "rectangle", "alt-tab", "bear"]
+    }
+  ]
+}

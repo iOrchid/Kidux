@@ -1,0 +1,77 @@
+{
+  "version": "1.0.0",
+  "tools": [
+    {
+      "id": "meetingbar",
+      "name": "MeetingBar",
+      "description": "在菜单栏显示日历会议，开源效率工具",
+      "category": "productivity",
+      "kind": "gui",
+      "source": { "type": "cask", "identifier": "meetingbar" },
+      "required": false,
+      "priority": 38,
+      "homepage": "https://meetingbar.app/",
+      "tags": ["开源", "日历", "效率"]
+    },
+    {
+      "id": "pearcleaner",
+      "name": "Pearcleaner",
+      "description": "开源 Mac 应用卸载与清理工具",
+      "category": "utilities",
+      "kind": "gui",
+      "source": { "type": "cask", "identifier": "pearcleaner" },
+      "required": false,
+      "priority": 38,
+      "homepage": "https://github.com/alienator88/Pearcleaner",
+      "tags": ["开源", "清理"]
+    },
+    {
+      "id": "jordanbaird-ice",
+      "name": "Ice",
+      "description": "菜单栏图标管理，隐藏/整理菜单栏项",
+      "category": "productivity",
+      "kind": "gui",
+      "source": { "type": "cask", "identifier": "jordanbaird-ice" },
+      "required": false,
+      "priority": 38,
+      "homepage": "https://github.com/jordanbaird/Ice",
+      "tags": ["开源", "菜单栏"]
+    },
+    {
+      "id": "mackup",
+      "name": "Mackup",
+      "description": "将常用 App 设置备份到 iCloud/Dropbox，换机一键恢复",
+      "category": "utilities",
+      "kind": "cli",
+      "source": { "type": "formula", "identifier": "mackup" },
+      "required": false,
+      "priority": 35,
+      "homepage": "https://github.com/lra/mackup",
+      "tags": ["开源", "备份", "换机"]
+    },
+    {
+      "id": "iina",
+      "name": "IINA",
+      "description": "基于 mpv 的现代开源视频播放器",
+      "category": "media",
+      "kind": "gui",
+      "source": { "type": "cask", "identifier": "iina" },
+      "required": false,
+      "priority": 45,
+      "homepage": "https://iina.io/",
+      "tags": ["开源", "播放器"]
+    },
+    {
+      "id": "flotato",
+      "name": "Flotato",
+      "description": "将 Web 应用转为轻量 Mac 窗口",
+      "category": "productivity",
+      "kind": "gui",
+      "source": { "type": "cask", "identifier": "flotato" },
+      "required": false,
+      "priority": 42,
+      "homepage": "https://flotato.com/",
+      "tags": ["效率", "Web App"]
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+name: 功能请求
+description: 建议新能力或改进现有体验
+title: "[Feature] "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        大范围重构或绕过合规的「破解源」类需求请先在 [Discussions](https://github.com/iOrchid/Kidux/discussions) 讨论。
+  - type: textarea
+    id: problem
+    attributes:
+      label: 要解决什么问题
+      description: 当前痛点是什么？
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: 期望方案
+      description: 你希望启椟如何表现？
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: 备选或其他说明
+      description: 可选。是否已有 workaround、参考产品等。
+    validations:
+      required: false

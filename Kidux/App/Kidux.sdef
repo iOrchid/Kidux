@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dictionary SYSTEM "file://localhost/System/Library/DTDs/sdef.dtd">
+<dictionary title="Kidux Terminology">
+	<suite name="Kidux Suite" code="Kidx" description="启椟 · Kidux automation commands (S20-08)">
+		<command name="install role" code="KidxInst" description="Select a role and start installing its tools.">
+			<cocoa class="KiduxInstallRoleCommand"/>
+			<direct-parameter type="text" description="Role name or ID, e.g. frontend or frontend_developer"/>
+		</command>
+		<command name="select role" code="KidxSlct" description="Select a role and open the tool checklist.">
+			<cocoa class="KiduxSelectRoleCommand"/>
+			<direct-parameter type="text" description="Role name or ID"/>
+		</command>
+		<command name="dry run role" code="KidxDryR" description="Select a role and open dry-run preview without installing.">
+			<cocoa class="KiduxDryRunRoleCommand"/>
+			<direct-parameter type="text" description="Role name or ID"/>
+		</command>
+		<command name="search catalog" code="KidxSrch" description="Open Discover and search the catalog.">
+			<cocoa class="KiduxSearchCatalogCommand"/>
+			<direct-parameter type="text" description="Search keyword"/>
+		</command>
+	</suite>
+</dictionary>

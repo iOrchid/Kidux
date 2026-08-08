@@ -1,0 +1,111 @@
+{
+  "id": "data_engineer",
+  "name": "数据工程师",
+  "description": "ETL、Spark、Kafka、Airflow 数据管道",
+  "readme": "# 数据工程师 · 新人必读\n\n## 上手顺序\n1. Python / Java（按管道技术栈）。\n2. Docker（本地 Kafka / 数据库）。\n3. Spark / Airflow 相关 CLI 按需。\n\n## 注意\n本机 Spark 与生产集群版本尽量对齐，避免序列化差异。\n",
+  "icon": "cylinder.split.1x2.fill",
+  "version": "1.0.0",
+  "includes": [
+    "_base_office"
+  ],
+  "tools": [
+    {
+      "ref": "python",
+      "required": false
+    },
+    {
+      "ref": "pyenv",
+      "required": false
+    },
+    {
+      "ref": "miniconda",
+      "required": false
+    },
+    {
+      "ref": "pycharm",
+      "required": false
+    },
+    {
+      "ref": "visual-studio-code",
+      "required": false
+    },
+    {
+      "ref": "jupyterlab",
+      "required": false
+    },
+    {
+      "ref": "apache-spark",
+      "required": false
+    },
+    {
+      "ref": "apache-kafka",
+      "required": false
+    },
+    {
+      "ref": "airflow",
+      "required": false
+    },
+    {
+      "ref": "dbt",
+      "required": false
+    },
+    {
+      "ref": "docker",
+      "required": false
+    },
+    {
+      "ref": "kubernetes-cli",
+      "required": false
+    },
+    {
+      "ref": "terraform",
+      "required": false
+    },
+    {
+      "ref": "mysql",
+      "required": false
+    },
+    {
+      "ref": "postgresql",
+      "required": false
+    },
+    {
+      "ref": "mongodb-community",
+      "required": false
+    },
+    {
+      "ref": "redis",
+      "required": false
+    },
+    {
+      "ref": "dbeaver-community",
+      "required": false
+    },
+    {
+      "ref": "tableplus",
+      "required": false
+    },
+    {
+      "ref": "awscli",
+      "required": false
+    },
+    {
+      "ref": "google-cloud-sdk",
+      "required": false
+    }
+  ],
+  "postInstall": [
+    {
+      "id": "omz",
+      "name": "Oh My Zsh",
+      "script": "install_omz.sh",
+      "skipIf": "test -d \"$HOME/.oh-my-zsh\""
+    },
+    {
+      "id": "starship",
+      "name": "Starship 提示符",
+      "script": "configure_starship.sh",
+      "skipIf": "grep -q 'starship init zsh' \"$HOME/.zshrc\" 2>/dev/null"
+    }
+  ]
+}

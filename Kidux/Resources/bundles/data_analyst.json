@@ -1,0 +1,61 @@
+{
+  "id": "data_analyst",
+  "name": "数据分析师",
+  "description": "Python、Jupyter 与数据分析环境",
+  "readme": "# 数据分析师 · 新人必读\n\n## 上手顺序\n1. Python + Jupyter。\n2. 表格 / BI 客户端（按公司选型）。\n3. 可选：数据库 GUI、可视化工具。\n\n## 提示\n大数据量优先用 venv + 明确依赖锁定（requirements / poetry）。\n",
+  "icon": "chart.bar.xaxis",
+  "version": "1.0.0",
+  "includes": [
+    "_base_office"
+  ],
+  "tools": [
+    {
+      "ref": "python",
+      "required": false
+    },
+    {
+      "ref": "pyenv",
+      "required": false
+    },
+    {
+      "ref": "jupyterlab",
+      "required": false
+    },
+    {
+      "ref": "r",
+      "required": false
+    },
+    {
+      "ref": "postgresql",
+      "required": false
+    },
+    {
+      "ref": "dbeaver-community",
+      "required": false
+    },
+    {
+      "ref": "tableplus",
+      "required": false
+    },
+    {
+      "ref": "visual-studio-code",
+      "required": false
+    },
+    {
+      "ref": "cursor",
+      "required": false
+    },
+    {
+      "ref": "starship",
+      "required": false
+    }
+  ],
+  "postInstall": [
+    {
+      "id": "omz",
+      "name": "Oh My Zsh",
+      "script": "install_omz.sh",
+      "skipIf": "test -d \"$HOME/.oh-my-zsh\""
+    }
+  ]
+}

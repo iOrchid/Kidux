@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle">
+  <channel>
+    <title>Kidux Updates</title>
+    <link>https://github.com/iOrchid/Kidux</link>
+    <description>启椟 Kidux 自动更新源（Sparkle）</description>
+    <language>zh</language>
+    <!--
+      路径约定见 Kidux/Config/RepositoryConfig.swift（appcastFeedURL / releaseAssetURL）。
+      enclosure 的 url 对应 GitHub Release 资源；签名工具见 Tools/Sparkle/README.md。
+    -->
+    <item>
+      <title>Version 2.0.1</title>
+      <sparkle:version>37</sparkle:version>
+      <sparkle:shortVersionString>2.0.1</sparkle:shortVersionString>
+      <pubDate>Fri, 07 Aug 2026 12:00:00 +0800</pubDate>
+      <enclosure
+        url="https://github.com/iOrchid/Kidux/releases/download/v2.0.1/Kidux-2.0.1.dmg"
+        sparkle:os="macos"
+        length="11139156"
+        type="application/octet-stream"
+        sparkle:edSignature="EcTE4cN83pub+V1LhZn+cbw1lmm/d76nxFrdeb0fQql3Z2KIJ/wqWqd+G43nCwgVqnQe9fPGo3fpyk59sBO+AA=="/>
+      <description><![CDATA[
+        <h2>启椟 Kidux 2.0.1</h2>
+        <ul>
+          <li>Sparkle EdDSA 签名自动更新</li>
+          <li>首页首次配置引导与换机向导分离</li>
+          <li>侧栏品牌与窗口标题统一为「启椟 · Kidux」</li>
+        </ul>
+      ]]></description>
+    </item>
+    <item>
+      <title>Version 1.0.1</title>
+      <sparkle:version>6</sparkle:version>
+      <sparkle:shortVersionString>1.0.1</sparkle:shortVersionString>
+      <pubDate>Sat, 21 Jun 2026 12:00:00 +0800</pubDate>
+      <enclosure
+        url="https://github.com/iOrchid/Kidux/releases/download/v1.0.1/Kidux-1.0.1.dmg"
+        sparkle:os="macos"
+        length="0"
+        type="application/octet-stream"
+        sparkle:edSignature="REPLACE_WITH_SPARKLE_SIGN_TOOL_OUTPUT"/>
+      <description><![CDATA[
+        <h2>Kidux 1.0.1</h2>
+        <ul>
+          <li>首次引导 Onboarding</li>
+          <li>Sparkle 自动更新框架</li>
+          <li>发现页详情增强 · 安装大小预估</li>
+        </ul>
+      ]]></description>
+    </item>
+  </channel>
+</rss>

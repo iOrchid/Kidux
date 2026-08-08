@@ -1,0 +1,37 @@
+{
+  "id": "designer",
+  "name": "UI/UX 设计师",
+  "description": "设计、切图与交付协作工具",
+  "readme": "# UI/UX 设计师 · 新人必读\n\n## 核心\nFigma / 切图 / 交付链路优先；开发工具可按需勾选。\n\n## 上手顺序\n1. 设计主工具与字体管理。\n2. 标注与交付插件/客户端。\n3. 可选：原型演示与录屏。\n\n## 协作\n导出团队 Bundle 给开发同事，减少「缺什么再装什么」的往返。\n",
+  "icon": "paintbrush",
+  "version": "1.0.0",
+  "includes": [
+    "_base_office"
+  ],
+  "tools": [
+    {
+      "ref": "figma",
+      "required": false
+    },
+    {
+      "ref": "sketch",
+      "required": false
+    },
+    {
+      "ref": "zeplin",
+      "required": false
+    },
+    {
+      "ref": "sf-symbols",
+      "required": false
+    },
+    {
+      "ref": "imageoptim",
+      "required": false
+    },
+    {
+      "ref": "sublime-text",
+      "required": false
+    }
+  ]
+}

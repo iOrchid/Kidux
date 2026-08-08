@@ -1,0 +1,81 @@
+{
+  "id": "operations_specialist",
+  "name": "运营 / 增长",
+  "description": "数据分析、协作、内容创作与增长工具",
+  "readme": "# 运营 / 增长 · 新人必读\n\n## 重点\n数据分析、内容协作与投放相关工具；不必强装完整开发环境。\n\n## 上手顺序\n1. 表格 / BI / 埋点相关客户端。\n2. 设计轻协作（Figma 等）。\n3. 按渠道补齐浏览器与剪辑工具。\n",
+  "icon": "chart.line.uptrend.xyaxis",
+  "version": "1.0.0",
+  "includes": [
+    "_base_office"
+  ],
+  "tools": [
+    {
+      "ref": "xmind",
+      "required": false
+    },
+    {
+      "ref": "miro",
+      "required": false
+    },
+    {
+      "ref": "figma",
+      "required": false
+    },
+    {
+      "ref": "notion",
+      "required": false
+    },
+    {
+      "ref": "typora",
+      "required": false
+    },
+    {
+      "ref": "obsidian",
+      "required": false
+    },
+    {
+      "ref": "feishu",
+      "required": false
+    },
+    {
+      "ref": "dingtalk",
+      "required": false
+    },
+    {
+      "ref": "slack",
+      "required": false
+    },
+    {
+      "ref": "zoom",
+      "required": false
+    },
+    {
+      "ref": "tencent-meeting",
+      "required": false
+    },
+    {
+      "ref": "google-chrome",
+      "required": false
+    },
+    {
+      "ref": "microsoft-edge",
+      "required": false
+    },
+    {
+      "ref": "wpsoffice",
+      "required": false
+    },
+    {
+      "ref": "todoist",
+      "required": false
+    },
+    {
+      "ref": "python",
+      "required": false
+    },
+    {
+      "ref": "jupyterlab",
+      "required": false
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "version": "1.0.0",
+  "tools": [
+    {
+      "id": "claude-code",
+      "name": "Claude Code",
+      "description": "Anthropic 终端 AI 编程助手，可读写代码、跑命令、改仓库",
+      "category": "editor",
+      "kind": "cli",
+      "source": { "type": "cask", "identifier": "claude-code" },
+      "required": false,
+      "priority": 28,
+      "homepage": "https://docs.anthropic.com/en/docs/claude-code",
+      "tags": ["AI", "CLI", "编程助手", "Anthropic"]
+    },
+    {
+      "id": "codex",
+      "name": "OpenAI Codex",
+      "description": "OpenAI 终端编程 Agent，支持云端与本地模型（Ollama / LM Studio）",
+      "category": "editor",
+      "kind": "cli",
+      "source": { "type": "cask", "identifier": "codex" },
+      "required": false,
+      "priority": 28,
+      "homepage": "https://github.com/openai/codex",
+      "tags": ["AI", "CLI", "编程助手", "OpenAI"]
+    },
+    {
+      "id": "ollama",
+      "name": "Ollama",
+      "description": "本机运行大语言模型，提供本地 API，适合隐私与离线场景",
+      "category": "language",
+      "kind": "gui",
+      "source": { "type": "cask", "identifier": "ollama-app" },
+      "required": false,
+      "priority": 25,
+      "homepage": "https://ollama.com",
+      "tags": ["AI", "本地模型", "LLM"]
+    },
+    {
+      "id": "lm-studio",
+      "name": "LM Studio",
+      "description": "图形化本地下载与运行开源 LLM，可暴露 OpenAI 兼容 API",
+      "category": "language",
+      "kind": "gui",
+      "source": { "type": "cask", "identifier": "lm-studio" },
+      "required": false,
+      "priority": 25,
+      "homepage": "https://lmstudio.ai",
+      "tags": ["AI", "本地模型", "LLM"]
+    },
+    {
+      "id": "aider",
+      "name": "Aider",
+      "description": "终端 AI pair programming，可直接对 Git 仓库提交改动",
+      "category": "editor",
+      "kind": "cli",
+      "source": { "type": "formula", "identifier": "aider" },
+      "required": false,
+      "priority": 29,
+      "homepage": "https://aider.chat",
+      "tags": ["AI", "CLI", "开源", "pair programming"]
+    }
+  ]
+}

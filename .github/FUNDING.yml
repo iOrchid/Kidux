@@ -1,0 +1,9 @@
+# 仓库页「Sponsor / 赞助」由此文件生成。
+# https://docs.github.com/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/displaying-a-sponsor-button-in-your-repository
+
+# 已开通 GitHub Sponsors 时填写（最多 4 个用户名）
+github: [iOrchid]
+
+# 微信 / 支付宝：跳转到 README 打赏区（平台无微信、支付宝专用字段）
+custom:
+  - "https://github.com/iOrchid/Kidux#sponsor"

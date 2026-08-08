@@ -1,0 +1,59 @@
+name: Bug 报告
+description: 应用崩溃、安装失败或行为异常
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        请尽量提供可复现信息。用法类问题请改用 [Discussions](https://github.com/iOrchid/Kidux/discussions)。
+  - type: textarea
+    id: description
+    attributes:
+      label: 问题描述
+      description: 发生了什么？期望是什么？
+      placeholder: 例如：点击一键安装后进度卡住，界面无响应…
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: 复现步骤
+      placeholder: |
+        1. …
+        2. …
+        3. …
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: 启椟版本
+      description: 设置 → 关于，或 Releases 上的版本号
+      placeholder: 例如 2.2.0
+    validations:
+      required: true
+  - type: input
+    id: macos
+    attributes:
+      label: macOS 版本
+      placeholder: 例如 15.5
+    validations:
+      required: true
+  - type: dropdown
+    id: install
+    attributes:
+      label: 安装方式
+      options:
+        - GitHub Releases DMG
+        - 自行用 Xcode / xcodebuild 编译
+        - 其他
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: 相关日志或截图说明
+      description: 可粘贴安装日志片段；请勿粘贴 API Key、密码等敏感信息。
+    validations:
+      required: false

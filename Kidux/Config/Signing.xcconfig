@@ -1,0 +1,8 @@
+// 签名与 Apple Team。Fork 后请改为你自己的 Team ID（Xcode → Settings → Accounts → Team）。
+// 修改后无需改 pbxproj 中的 DEVELOPMENT_TEAM（由本文件注入）。
+
+DEVELOPMENT_TEAM = 7X4YY9Y3U2
+
+// Sparkle 更新源：与 RepositoryConfig.appcastFeedURL 保持一致。
+// xcconfig 中用 https:/$()/ 表示 https://
+INFOPLIST_KEY_SUFeedURL = https:/$()/raw.githubusercontent.com/iOrchid/Kidux/main/bin/appcast.xml

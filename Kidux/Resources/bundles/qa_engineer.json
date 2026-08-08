@@ -1,0 +1,54 @@
+{
+  "id": "qa_engineer",
+  "name": "测试工程师",
+  "description": "自动化测试、API 调试与缺陷管理",
+  "readme": "# 测试工程师 · 新人必读\n\n## 上手顺序\n1. 编辑器 + Git。\n2. API 调试（Postman / Insomnia）。\n3. 自动化框架运行时（按 Selenium / Playwright 等选型）。\n\n## 提示\n浏览器自动化需匹配驱动版本；优先用框架自带的 browser 管理。\n",
+  "icon": "checkmark.seal",
+  "version": "1.0.0",
+  "includes": [
+    "_base_office"
+  ],
+  "tools": [
+    {
+      "ref": "visual-studio-code",
+      "required": false
+    },
+    {
+      "ref": "postman",
+      "required": false
+    },
+    {
+      "ref": "insomnia",
+      "required": false
+    },
+    {
+      "ref": "charles",
+      "required": false
+    },
+    {
+      "ref": "proxyman",
+      "required": false
+    },
+    {
+      "ref": "docker",
+      "required": false
+    },
+    {
+      "ref": "node",
+      "required": false
+    },
+    {
+      "ref": "python",
+      "required": false
+    },
+    {
+      "ref": "dbeaver-community",
+      "required": false
+    },
+    {
+      "ref": "slack",
+      "required": false
+    }
+  ],
+  "postInstall": []
+}

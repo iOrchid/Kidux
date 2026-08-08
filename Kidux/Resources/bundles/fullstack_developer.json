@@ -1,0 +1,123 @@
+{
+  "id": "fullstack_developer",
+  "name": "全栈工程师",
+  "description": "前后端一体化开发工具集",
+  "readme": "# 全栈工程师 · 新人必读\n\n## 定位\n合并前后端常用工具；体积偏大，建议先扫清单再取消不需要的项。\n\n## 上手顺序\n1. Node + 后端运行时（按项目）。\n2. Docker + 数据库客户端。\n3. 浏览器调试与 API 工具。\n4. 可选 AI 编码助手（Cursor / Claude Code）。\n",
+  "icon": "square.stack.3d.up",
+  "version": "1.0.0",
+  "includes": [
+    "_base_office"
+  ],
+  "tools": [
+    {
+      "ref": "visual-studio-code",
+      "required": false
+    },
+    {
+      "ref": "cursor",
+      "required": false
+    },
+    {
+      "ref": "sublime-text",
+      "required": false
+    },
+    {
+      "ref": "node",
+      "required": false
+    },
+    {
+      "ref": "nvm",
+      "required": false
+    },
+    {
+      "ref": "python",
+      "required": false
+    },
+    {
+      "ref": "pyenv",
+      "required": false
+    },
+    {
+      "ref": "go",
+      "required": false
+    },
+    {
+      "ref": "docker",
+      "required": false
+    },
+    {
+      "ref": "postman",
+      "required": false
+    },
+    {
+      "ref": "mysql",
+      "required": false
+    },
+    {
+      "ref": "postgresql",
+      "required": false
+    },
+    {
+      "ref": "redis",
+      "required": false
+    },
+    {
+      "ref": "tableplus",
+      "required": false
+    },
+    {
+      "ref": "starship",
+      "required": false
+    },
+    {
+      "ref": "fzf",
+      "required": false
+    },
+    {
+      "ref": "ripgrep",
+      "required": false
+    },
+    {
+      "ref": "bat",
+      "required": false
+    },
+    {
+      "ref": "eza",
+      "required": false
+    },
+    {
+      "ref": "fd",
+      "required": false
+    },
+    {
+      "ref": "tmux",
+      "required": false
+    }
+  ],
+  "postInstall": [
+    {
+      "id": "omz",
+      "name": "Oh My Zsh",
+      "script": "install_omz.sh",
+      "skipIf": "test -d \"$HOME/.oh-my-zsh\""
+    },
+    {
+      "id": "zsh-plugins",
+      "name": "Zsh 插件",
+      "script": "configure_zsh_plugins.sh",
+      "skipIf": "test -d \"$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions\""
+    },
+    {
+      "id": "starship",
+      "name": "Starship 提示符",
+      "script": "configure_starship.sh",
+      "skipIf": "grep -q 'starship init zsh' \"$HOME/.zshrc\" 2>/dev/null"
+    },
+    {
+      "id": "iterm2-theme",
+      "name": "iTerm2 Dracula 配色",
+      "script": "import_iterm2_theme.sh",
+      "skipIf": "test -f \"$HOME/.macdevtools/iterm2-themes/Dracula.itermcolors\""
+    }
+  ]
+}

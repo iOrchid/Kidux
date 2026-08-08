@@ -1,0 +1,37 @@
+{
+  "id": "product_manager",
+  "name": "产品经理",
+  "description": "协作、文档、原型与沟通工具",
+  "readme": "# 产品经理 · 新人必读\n\n## 核心能力\n协作文档、原型与沟通是日常主轴；本 Bundle 偏向轻量办公与白板/思维导图。\n\n## 上手顺序\n1. 协作与文档类（飞书/Notion 等按团队选型）。\n2. 原型与流程图工具。\n3. 可选：截图、录屏与标注工具。\n\n## 提示\n与工程师协作时，可导出岗位清单分享给同事一键复刻环境。\n",
+  "icon": "person.crop.rectangle.stack",
+  "version": "1.0.0",
+  "includes": [
+    "_base_office"
+  ],
+  "tools": [
+    {
+      "ref": "xmind",
+      "required": false
+    },
+    {
+      "ref": "figma",
+      "required": false
+    },
+    {
+      "ref": "feishu",
+      "required": false
+    },
+    {
+      "ref": "dingtalk",
+      "required": false
+    },
+    {
+      "ref": "zoom",
+      "required": false
+    },
+    {
+      "ref": "charles",
+      "required": false
+    }
+  ]
+}

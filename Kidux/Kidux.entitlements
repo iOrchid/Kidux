@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!-- 主 App 故意不声明 App Group：冷启动访问 group container 会在 Sequoia 弹出
+	     「想访问其他 App 的数据」（尤其 Xcode Debug 签名与扩展不一致时）。
+	     小组件 / Share Extension 仍使用各自 entitlements 中的 group。 -->
+</dict>
+</plist>

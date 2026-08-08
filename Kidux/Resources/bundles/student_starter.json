@@ -1,0 +1,49 @@
+{
+  "id": "student_starter",
+  "name": "学生 / 入门",
+  "description": "精简开发入门套装，适合学习和轻量开发",
+  "readme": "# 学生 / 入门 · 新人必读\n\n## 上手顺序\n1. 先装 Homebrew（启椟会引导），再装 Git 与终端增强。\n2. 编辑器二选一：VS Code 或 Cursor。\n3. 按课程需要再加语言运行时（Python / Node）。\n\n## 建议\n- 不必一次勾选全部工具，先装「必选」再按需补齐。\n- 安装后在「已安装 → 维护」查看服务与更新。\n",
+  "icon": "graduationcap",
+  "version": "1.0.0",
+  "includes": [
+    "_base_office"
+  ],
+  "tools": [
+    {
+      "ref": "visual-studio-code",
+      "required": false
+    },
+    {
+      "ref": "iterm2",
+      "required": false
+    },
+    {
+      "ref": "google-chrome",
+      "required": false
+    },
+    {
+      "ref": "python",
+      "required": false
+    },
+    {
+      "ref": "node",
+      "required": false
+    },
+    {
+      "ref": "git",
+      "required": true
+    },
+    {
+      "ref": "typora",
+      "required": false
+    }
+  ],
+  "postInstall": [
+    {
+      "id": "omz",
+      "name": "Oh My Zsh",
+      "script": "install_omz.sh",
+      "skipIf": "test -d \"$HOME/.oh-my-zsh\""
+    }
+  ]
+}

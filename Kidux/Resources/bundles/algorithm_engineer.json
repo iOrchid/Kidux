@@ -1,0 +1,99 @@
+{
+  "id": "algorithm_engineer",
+  "name": "算法 / AI 工程师",
+  "description": "Python、PyTorch、Jupyter、模型训练与实验",
+  "readme": "# 算法 / AI 工程师 · 新人必读\n\n## 上手顺序\n1. Python + 虚拟环境。\n2. Jupyter / VS Code。\n3. 可选：本地推理（Ollama / LM Studio，见 AI 开发 Bundle）。\n\n## 提示\nGPU / Metal 加速依赖驱动与框架版本，装完请用小模型验证。\n",
+  "icon": "brain.head.profile",
+  "version": "1.0.0",
+  "includes": [
+    "_base_office"
+  ],
+  "tools": [
+    {
+      "ref": "python",
+      "required": false
+    },
+    {
+      "ref": "miniconda",
+      "required": false
+    },
+    {
+      "ref": "anaconda",
+      "required": false
+    },
+    {
+      "ref": "pycharm",
+      "required": false
+    },
+    {
+      "ref": "visual-studio-code",
+      "required": false
+    },
+    {
+      "ref": "jupyterlab",
+      "required": false
+    },
+    {
+      "ref": "pytorch",
+      "required": false
+    },
+    {
+      "ref": "tensorflow",
+      "required": false
+    },
+    {
+      "ref": "r",
+      "required": false
+    },
+    {
+      "ref": "docker",
+      "required": false
+    },
+    {
+      "ref": "postgresql",
+      "required": false
+    },
+    {
+      "ref": "redis",
+      "required": false
+    },
+    {
+      "ref": "dbeaver-community",
+      "required": false
+    },
+    {
+      "ref": "starship",
+      "required": false
+    },
+    {
+      "ref": "fzf",
+      "required": false
+    },
+    {
+      "ref": "ripgrep",
+      "required": false
+    },
+    {
+      "ref": "bat",
+      "required": false
+    },
+    {
+      "ref": "tmux",
+      "required": false
+    }
+  ],
+  "postInstall": [
+    {
+      "id": "omz",
+      "name": "Oh My Zsh",
+      "script": "install_omz.sh",
+      "skipIf": "test -d \"$HOME/.oh-my-zsh\""
+    },
+    {
+      "id": "starship",
+      "name": "Starship 提示符",
+      "script": "configure_starship.sh",
+      "skipIf": "grep -q 'starship init zsh' \"$HOME/.zshrc\" 2>/dev/null"
+    }
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "id": "python_developer",
+  "name": "Python 工程师",
+  "description": "Python、PyCharm、虚拟环境、Web/API 开发",
+  "readme": "# Python 工程师 · 新人必读\n\n## 上手顺序\n1. Python 3 + 虚拟环境工具（uv / venv / conda 按团队）。\n2. PyCharm 或 VS Code。\n3. 可选：Jupyter、Docker。\n\n## 提示\n全局装包易污染环境；每个项目独立 venv。\n",
+  "icon": "leaf.fill",
+  "version": "1.0.0",
+  "includes": [
+    "_base_office"
+  ],
+  "tools": [
+    {
+      "ref": "python",
+      "required": false
+    },
+    {
+      "ref": "pyenv",
+      "required": false
+    },
+    {
+      "ref": "miniconda",
+      "required": false
+    },
+    {
+      "ref": "pycharm",
+      "required": false
+    },
+    {
+      "ref": "pycharm-ce",
+      "required": false
+    },
+    {
+      "ref": "visual-studio-code",
+      "required": false
+    },
+    {
+      "ref": "jupyterlab",
+      "required": false
+    },
+    {
+      "ref": "docker",
+      "required": false
+    },
+    {
+      "ref": "postman",
+      "required": false
+    },
+    {
+      "ref": "mysql",
+      "required": false
+    },
+    {
+      "ref": "postgresql",
+      "required": false
+    },
+    {
+      "ref": "redis",
+      "required": false
+    },
+    {
+      "ref": "dbeaver-community",
+      "required": false
+    },
+    {
+      "ref": "pre-commit",
+      "required": false
+    },
+    {
+      "ref": "starship",
+      "required": false
+    },
+    {
+      "ref": "fzf",
+      "required": false
+    },
+    {
+      "ref": "ripgrep",
+      "required": false
+    },
+    {
+      "ref": "bat",
+      "required": false
+    },
+    {
+      "ref": "tmux",
+      "required": false
+    }
+  ],
+  "postInstall": [
+    {
+      "id": "omz",
+      "name": "Oh My Zsh",
+      "script": "install_omz.sh",
+      "skipIf": "test -d \"$HOME/.oh-my-zsh\""
+    },
+    {
+      "id": "zsh-plugins",
+      "name": "Zsh 插件",
+      "script": "configure_zsh_plugins.sh",
+      "skipIf": "test -d \"$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions\""
+    },
+    {
+      "id": "starship",
+      "name": "Starship 提示符",
+      "script": "configure_starship.sh",
+      "skipIf": "grep -q 'starship init zsh' \"$HOME/.zshrc\" 2>/dev/null"
+    }
+  ]
+}

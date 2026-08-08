@@ -1,0 +1,7 @@
+// 复制为 Signing.xcconfig 后按本机修改（若你维护自己的 fork）。
+// cp Kidux/Config/Signing.xcconfig.example Kidux/Config/Signing.xcconfig
+
+DEVELOPMENT_TEAM = YOUR_TEAM_ID
+
+// 与 Kidux/Config/RepositoryConfig.swift 中的 owner / name / defaultBranch 保持一致
+INFOPLIST_KEY_SUFeedURL = https:/$()/raw.githubusercontent.com/YOUR_GITHUB_OWNER/YOUR_REPO/main/bin/appcast.xml

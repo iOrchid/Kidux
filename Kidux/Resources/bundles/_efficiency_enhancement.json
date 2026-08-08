@@ -1,0 +1,18 @@
+{
+  "id": "_efficiency_enhancement",
+  "name": "效率增强包",
+  "description": "装机后可选的效率与系统增强工具（默认不勾选为必装）",
+  "icon": "bolt.fill",
+  "version": "1.0.0",
+  "includes": null,
+  "tools": [
+    { "ref": "stats", "required": false },
+    { "ref": "maccy", "required": false },
+    { "ref": "rectangle", "required": false },
+    { "ref": "jordanbaird-ice", "required": false },
+    { "ref": "pearcleaner", "required": false },
+    { "ref": "monitorcontrol", "required": false },
+    { "ref": "localsend", "required": false },
+    { "ref": "iina", "required": false }
+  ]
+}

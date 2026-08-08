@@ -1,0 +1,95 @@
+{
+  "id": "security_engineer",
+  "name": "安全工程师",
+  "description": "渗透测试、抓包分析、密钥与漏洞工具",
+  "readme": "# 安全工程师 · 新人必读\n\n## 注意\n部分工具仅用于授权测试环境；请遵守法律法规与公司红线。\n\n## 上手顺序\n1. 抓包与流量分析基线工具。\n2. 密钥 / 证书管理辅助。\n3. 漏洞扫描类按需（默认不必全选）。\n",
+  "icon": "lock.shield.fill",
+  "version": "1.0.0",
+  "includes": [
+    "_base_office"
+  ],
+  "tools": [
+    {
+      "ref": "wireshark",
+      "required": false
+    },
+    {
+      "ref": "charles",
+      "required": false
+    },
+    {
+      "ref": "proxyman",
+      "required": false
+    },
+    {
+      "ref": "mitmproxy",
+      "required": false
+    },
+    {
+      "ref": "nmap",
+      "required": false
+    },
+    {
+      "ref": "gnupg",
+      "required": false
+    },
+    {
+      "ref": "1password",
+      "required": false
+    },
+    {
+      "ref": "bitwarden",
+      "required": false
+    },
+    {
+      "ref": "keepassxc",
+      "required": false
+    },
+    {
+      "ref": "docker",
+      "required": false
+    },
+    {
+      "ref": "python",
+      "required": false
+    },
+    {
+      "ref": "go",
+      "required": false
+    },
+    {
+      "ref": "visual-studio-code",
+      "required": false
+    },
+    {
+      "ref": "starship",
+      "required": false
+    },
+    {
+      "ref": "fzf",
+      "required": false
+    },
+    {
+      "ref": "ripgrep",
+      "required": false
+    },
+    {
+      "ref": "tmux",
+      "required": false
+    }
+  ],
+  "postInstall": [
+    {
+      "id": "omz",
+      "name": "Oh My Zsh",
+      "script": "install_omz.sh",
+      "skipIf": "test -d \"$HOME/.oh-my-zsh\""
+    },
+    {
+      "id": "starship",
+      "name": "Starship 提示符",
+      "script": "configure_starship.sh",
+      "skipIf": "grep -q 'starship init zsh' \"$HOME/.zshrc\" 2>/dev/null"
+    }
+  ]
+}
