@@ -1,8 +1,8 @@
 <p align="center">
-  <img src="icon.png" width="128" alt="启椟" />
+  <img src="./icon.png" width="128" alt="启椟" />
 </p>
 
-<h1 align="center">启椟</h1>
+<h1 align="center">启椟·Kidux</h1>
 
 <p align="center">
   <strong>面向互联网从业者的 macOS 一键开箱装机助手</strong><br/>
@@ -16,7 +16,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/langem/Kidux/releases/latest"><strong>⬇ 下载 macOS 版</strong></a>
+  <a href="https://github.com/iOrchid/Kidux/releases/latest"><strong>⬇ 下载 macOS 版</strong></a>
   ·
   <a href="./index.html">官网页面</a>
 </p>
@@ -63,7 +63,7 @@
 
 ## 下载与安装
 
-1. 打开 [Releases 最新版](https://github.com/langem/Kidux/releases/latest)  
+1. 打开 [Releases 最新版](https://github.com/iOrchid/Kidux/releases/latest)  
 2. 下载 **`启椟-x.x.x.dmg`**  
 3. 打开 DMG，将 **启椟** 拖入「应用程序」  
 4. 首次若被拦截：系统设置 → 隐私与安全性 → 仍要打开  
@@ -85,4 +85,4 @@
 本仓库是 **启椟宣传站 / GitHub Pages**，提供产品介绍与下载入口。  
 完整工程名：Kidux · 用户可见名：**启椟**  
 
-有问题或建议：请在 [Issues](https://github.com/langem/Kidux/issues) 反馈（若尚未开放 Issues，可通过 Releases 页联系维护者）。
+有问题或建议：请在 [Issues](https://github.com/iOrchid/Kidux/issues) 反馈（若尚未开放 Issues，可通过 Releases 页联系维护者）。
