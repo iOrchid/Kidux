@@ -19,7 +19,7 @@
   <a href="https://github.com/iOrchid/Kidux/issues"><img src="https://img.shields.io/github/issues/iOrchid/Kidux?style=flat-square" alt="issues" /></a>
   <img src="https://img.shields.io/github/last-commit/iOrchid/Kidux?style=flat-square" alt="last commit" />
   <img src="https://img.shields.io/badge/Homebrew-Cask%20%2F%20Formula-FBB040?style=flat-square&logo=homebrew&logoColor=white" alt="Homebrew" />
-  <a href="https://iorchid.github.io/Kidux/"><img src="https://hitscounter.dev/api/hit?url=https%3A%2F%2Fgithub.com%2FiOrchid%2FKidux&label=visitors&labelColor=555555&color=1ec8c1&style=flat-square" alt="visitors" /></a>
+  <a href="https://iorchid.github.io/Kidux/"><img src="https://visitor-badge.laobi.icu/badge?page_id=iOrchid.Kidux&left_text=visitors&left_color=555555&right_color=1ec8c1" alt="visitors" /></a>
 </p>
 
 <p align="center">
