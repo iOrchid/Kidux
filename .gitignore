@@ -1,0 +1,5 @@
+# 本地预览用；大体积安装包请上传到 GitHub Releases，勿提交
+*.dmg
+.DS_Store
+.idea/
+.vscode/
