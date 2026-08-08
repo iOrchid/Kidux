@@ -144,8 +144,21 @@
       max-width: 1120px; margin: 0 auto; padding: 28px 24px 48px;
       border-top: 1px solid var(--line); display: flex; justify-content: space-between;
       gap: 20px; flex-wrap: wrap; color: var(--muted); font-size: 0.92rem;
+      align-items: flex-end;
     }
     footer strong { color: var(--foam); margin-right: 8px; }
+    .footer-meta { display: grid; gap: 8px; }
+    .footer-stats {
+      display: flex; flex-wrap: wrap; gap: 14px 20px; align-items: center;
+      font-size: 0.86rem; color: var(--muted);
+    }
+    .footer-stats span { white-space: nowrap; }
+    .footer-stats em {
+      font-style: normal; color: var(--foam); font-variant-numeric: tabular-nums;
+    }
+    .footer-hits { display: inline-flex; opacity: 0.92; }
+    .footer-hits:hover { opacity: 1; }
+    .footer-hits img { display: block; border-radius: 3px; }
     .footer-links { display: flex; gap: 18px; }
     @keyframes float {
       0%, 100% { transform: translateY(0); }
@@ -270,9 +283,22 @@
   </main>
 
   <footer>
-    <div>
-      <strong>启椟</strong> · Kidux
-      <span>macOS 装机助手 · 显示名启椟 · MIT</span>
+    <div class="footer-meta">
+      <div>
+        <strong>启椟</strong> · Kidux
+        <span>macOS 装机助手 · MIT</span>
+      </div>
+      <div class="footer-stats">
+        <span id="busuanzi_container_site_pv" style="display:none">
+          本站访问 <em id="busuanzi_value_site_pv"></em> 次
+        </span>
+        <span id="busuanzi_container_site_uv" style="display:none">
+          独立访客 <em id="busuanzi_value_site_uv"></em>
+        </span>
+        <a class="footer-hits" href="https://github.com/iOrchid/Kidux" target="_blank" rel="noopener" title="GitHub 仓库访问计数">
+          <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FiOrchid%2FKidux&count_bg=%231ec8c1&title_bg=%23333&title=visitors&edge_flat=true" alt="visitors" height="20" />
+        </a>
+      </div>
     </div>
     <div class="footer-links">
       <a href="https://github.com/iOrchid/Kidux" target="_blank" rel="noopener">GitHub</a>
@@ -280,5 +306,7 @@
       <a href="https://github.com/iOrchid/Kidux/discussions" target="_blank" rel="noopener">Discussions</a>
     </div>
   </footer>
+  <!-- 不蒜子：静态站常用的站点 PV / UV，无需自建后端 -->
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </body>
 </html>
