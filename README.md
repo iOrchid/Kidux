@@ -18,7 +18,7 @@
 <p align="center">
   <a href="https://github.com/iOrchid/Kidux/releases/latest"><strong>⬇ 下载 macOS 版</strong></a>
   ·
-  <a href="./index.html">官网页面</a>
+  <a href="https://iorchid.github.io/Kidux/">官网页面</a>
 </p>
 
 ---
