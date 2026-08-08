@@ -125,15 +125,9 @@ xcodebuild -project Kidux.xcodeproj -scheme Kidux \
 
 <a id="sponsor"></a>
 
-## 来杯咖啡 ☕️ 💗
+## 来杯咖啡 ☕️ ![like](docs/images/donation.svg)
 
-若本项目对你有帮助，欢迎 Star；也欢迎请作者喝杯咖啡，支持持续维护：
-
-<p align="center">
-  <img src="docs/images/donation.svg" width="96" alt="donation" />
-</p>
-
-<p align="center">
+若本项目对你有帮助，欢迎 Star✨；也欢迎请作者喝杯咖啡，支持持续维护：
 
 | 微信赞赏 | 支付宝 |
 | :---: | :---: |
