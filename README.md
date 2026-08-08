@@ -31,7 +31,6 @@
   <a href="https://github.com/iOrchid/Kidux/discussions">Discussions</a>
 </p>
 
----
 
 ## 简介
 
@@ -48,7 +47,6 @@
 |------------|----------|------|
 | **启椟** | `Kidux/` | `启椟.app`（模块名仍为 Kidux） |
 
----
 
 ## 环境要求
 
@@ -57,7 +55,6 @@
 - 可选：Homebrew（运行期安装能力依赖它）
 - Apple Developer 账号（本机签名运行需要；免费 Apple ID 亦可用于 Development 签名）
 
----
 
 ## 配置、编译与运行
 
@@ -107,8 +104,6 @@ xcodebuild -project Kidux.xcodeproj -scheme Kidux \
 
 预编译安装包见 [Releases](https://github.com/iOrchid/Kidux/releases)。给他人使用请下载公证后的 DMG。
 
----
-
 ## 卸载与反馈
 
 1. 界面无响应时，可强制退出「启椟」（⌥⌘⎋）；活动监视器中如有残留 `brew` 进程可结束。  
@@ -121,7 +116,6 @@ xcodebuild -project Kidux.xcodeproj -scheme Kidux \
 
 4. Bug 与功能请求请使用 [Issues](https://github.com/iOrchid/Kidux/issues)；用法讨论见 [Discussions](https://github.com/iOrchid/Kidux/discussions)。
 
----
 
 <a id="sponsor"></a>
 
@@ -134,8 +128,6 @@ xcodebuild -project Kidux.xcodeproj -scheme Kidux \
 | <img src="docs/images/admireCode.png" width="200" alt="微信赞赏" /> | <img src="docs/images/alipay2QR.png" width="200" alt="支付宝" /> |
 
 </p>
-
----
 
 ## License
 
