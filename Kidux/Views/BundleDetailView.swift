@@ -12,13 +12,15 @@ struct BundleDetailView: View {
             header
             Divider()
             toolList
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+                .layoutPriority(1)
             if !viewModel.postInstallSteps.isEmpty {
                 postInstallSection
             }
             Divider()
             footer
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .sheet(isPresented: $showRoleReadme) {
             RoleKnowledgeSheet(roles: selectedRolesWithReadme)
         }
@@ -203,15 +205,11 @@ struct BundleDetailView: View {
             }
             .help(String(localized: "ui.BundleDetailView.bbf699d5b5"))
 
-            if #available(macOS 14.0, *) {
-                TipView(DryRunInstallTip(), arrowEdge: .bottom)
-                    .tipBackground(Color(nsColor: .controlBackgroundColor))
-            }
-
             Button(String(localized: "ui.BundleDetailView.4629b49b0a")) {
                 Task { await viewModel.presentDryRunSheet() }
             }
             .help(String(localized: "ui.BundleDetailView.81285f4115"))
+            .modifier(DryRunInstallTipModifier())
 
             if viewModel.lastRollbackBatch != nil {
                 Button(String(localized: "ui.BundleDetailView.7124a56f60")) {
@@ -233,6 +231,16 @@ struct BundleDetailView: View {
 }
 
 /// S19-05 — 岗位知识库 Sheet
+private struct DryRunInstallTipModifier: ViewModifier {
+    func body(content: Content) -> some View {
+        if #available(macOS 14.0, *) {
+            content.popoverTip(DryRunInstallTip())
+        } else {
+            content
+        }
+    }
+}
+
 struct RoleKnowledgeSheet: View {
     let roles: [RoleBundle]
     @Environment(\.dismiss) private var dismiss
