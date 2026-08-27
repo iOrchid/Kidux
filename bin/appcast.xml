@@ -10,6 +10,23 @@
       enclosure 的 url 对应 GitHub Release 资源；签名工具见 Tools/Sparkle/README.md。
     -->
     <item>
+      <title>Version 2.2.0</title>
+      <sparkle:version>46</sparkle:version>
+      <sparkle:shortVersionString>2.2.0</sparkle:shortVersionString>
+      <pubDate>Fri, 28 Aug 2026 01:26:29 +0800</pubDate>
+      <enclosure
+        url="https://github.com/iOrchid/Kidux/releases/download/v2.2.0/Kidux-2.2.0.dmg"
+        sparkle:os="macos"
+        length="10206814"
+        type="application/octet-stream"
+        sparkle:edSignature="0nH8zNsXuanmYr3SJaOk7EHA1KVoyZqvn1b+BbYN5KE2OasLx66gx6Xotst3wYjUpr4YELvTaxC4bbY+hGZQDA=="/>
+      <description><![CDATA[
+<h2>启椟 2.2.0 (build 46)</h2>
+<ul><li>修复岗位工具清单页列表被底部区域挤压</li><li>统一 DMG 命名为 Kidux-x.dmg（Sparkle / GitHub Release URL 一致）</li><li>新增一键发版脚本 bin/release.sh</li></ul>
+      ]]></description>
+    </item>
+
+<item>
       <title>Version 2.0.1</title>
       <sparkle:version>37</sparkle:version>
       <sparkle:shortVersionString>2.0.1</sparkle:shortVersionString>
