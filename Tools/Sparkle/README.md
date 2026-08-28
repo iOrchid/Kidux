@@ -20,6 +20,11 @@ Kidux 使用钥匙串 account **`kidux`**（与 `SUPublicEDKey` 对应）：
 
 # 发布：对公证后的 DMG 签名，输出填入 bin/appcast.xml
 ./Tools/Sparkle/sign_update --account kidux build/Kidux-<version>.dmg
+
+# 或一键（推荐：先 sync 公开源码，再公证+DMG+appcast）:
+./bin/release.sh
+# 只发安装包、不同步源码:
+./bin/release.sh --no-sync
 ```
 
 私钥仅存本机钥匙串，**不要**提交到仓库。详见 `docs/12-DISTRIBUTION.md` §8。
