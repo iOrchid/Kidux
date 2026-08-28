@@ -617,6 +617,14 @@ extension AppViewModel {
 
     func installDiscoverTools(_ tools: [DevTool]) async {
         guard !tools.isEmpty else { return }
+
+        await checkEnvironment(force: true)
+        if !environmentStatus.hasCommandLineTools {
+            extendedCatalogStatusMessage = "请先安装命令行工具（CLT）。系统弹窗出现后完成安装，再回来安装软件。"
+            _ = await homebrewService.promptInstallCommandLineTools()
+            return
+        }
+
         let resolved = tools.map { ResolvedTool(tool: $0, isRequired: false, isSelected: true) }
 
         // 1. 先填充队列并弹出 Sheet，让用户立刻看到任务列表与停止按钮
@@ -631,7 +639,7 @@ extension AppViewModel {
             await scanInstalledStatus()
         }
 
-        // 3. 正式安装（不再清空已展示的队列）
+        // 3. 正式安装（无 Homebrew 时会自动安装；无 CLT 会阻断并提示）
         await installManager.startInstallation(
             tools: resolved,
             postInstallSteps: [],

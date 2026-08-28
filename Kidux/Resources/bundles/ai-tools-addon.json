@@ -1,5 +1,5 @@
 {
-  "version": "1.0.0",
+  "version": "1.1.0",
   "tools": [
     {
       "id": "claude-code",
@@ -24,6 +24,66 @@
       "priority": 28,
       "homepage": "https://github.com/openai/codex",
       "tags": ["AI", "CLI", "编程助手", "OpenAI"]
+    },
+    {
+      "id": "trae",
+      "name": "Trae",
+      "description": "字节跳动出品的 Adaptive AI IDE，面向软件开发",
+      "category": "editor",
+      "kind": "gui",
+      "source": { "type": "cask", "identifier": "trae" },
+      "required": false,
+      "priority": 27,
+      "homepage": "https://www.trae.ai/",
+      "tags": ["AI", "IDE", "编辑器"]
+    },
+    {
+      "id": "trae-cn",
+      "name": "Trae CN",
+      "description": "Trae 国内版 AI IDE",
+      "category": "editor",
+      "kind": "gui",
+      "source": { "type": "cask", "identifier": "trae-cn" },
+      "required": false,
+      "priority": 28,
+      "homepage": "https://www.trae.com.cn/",
+      "tags": ["AI", "IDE", "国内"]
+    },
+    {
+      "id": "codebuddy",
+      "name": "CodeBuddy",
+      "description": "腾讯云 AI 自适应 IDE",
+      "category": "editor",
+      "kind": "gui",
+      "source": { "type": "cask", "identifier": "codebuddy" },
+      "required": false,
+      "priority": 28,
+      "homepage": "https://www.codebuddy.ai/ide/",
+      "tags": ["AI", "IDE", "腾讯"]
+    },
+    {
+      "id": "codebuddy-cn",
+      "name": "CodeBuddy CN",
+      "description": "CodeBuddy 国内版 AI IDE",
+      "category": "editor",
+      "kind": "gui",
+      "source": { "type": "cask", "identifier": "codebuddy-cn" },
+      "required": false,
+      "priority": 29,
+      "homepage": "https://copilot.tencent.com/ide/",
+      "tags": ["AI", "IDE", "国内"]
+    },
+    {
+      "id": "antigravity",
+      "name": "Google Antigravity",
+      "description": "Google Agent 编排平台 / AI 开发工具",
+      "category": "editor",
+      "kind": "gui",
+      "source": { "type": "cask", "identifier": "antigravity" },
+      "required": false,
+      "priority": 30,
+      "homepage": "https://antigravity.google/product/antigravity-2",
+      "tags": ["AI", "Agent", "Google"]
     },
     {
       "id": "ollama",

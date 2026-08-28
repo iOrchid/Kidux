@@ -3,7 +3,6 @@ import SwiftUI
 /// 全屏 AI 沉浸布局（对话优先；其他模块通过 navigateTo 切回经典侧栏）
 struct AIWorkspaceView: View {
     @Environment(AppViewModel.self) private var viewModel
-    @State private var showAISettings = false
 
     var body: some View {
         AppPageScaffold(style: .ai) {
@@ -12,9 +11,6 @@ struct AIWorkspaceView: View {
                 Divider().opacity(0.45)
                 AIAssistantView(immersive: true)
             }
-        }
-        .sheet(isPresented: $showAISettings) {
-            AISettingsSheet()
         }
     }
 
@@ -56,7 +52,7 @@ struct AIWorkspaceView: View {
                 .disabled(viewModel.aiIsThinking)
 
                 Button {
-                    showAISettings = true
+                    viewModel.showAISettingsSheet = true
                 } label: {
                     Label(String(localized: "ui.AIWorkspaceView.c6f186f75a"), systemImage: "slider.horizontal.3")
                 }

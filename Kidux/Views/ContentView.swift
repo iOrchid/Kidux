@@ -13,6 +13,9 @@ struct ContentView: View {
         }
         let titles = report.findings.prefix(4).map(\.title).joined(separator: "；")
         if report.blocksInstall {
+            if !viewModel.environmentStatus.hasCommandLineTools {
+                return "请先安装「命令行工具（CLT）」再装其它软件。\(titles)"
+            }
             return "\(report.summaryLine)。\(titles.isEmpty ? "请先解决严重问题。" : titles)"
         }
         return "\(report.summaryLine)。\(titles.isEmpty ? "确认后仍可继续安装。" : titles)"
@@ -93,6 +96,12 @@ struct ContentView: View {
             )
         ) {
             if viewModel.preflightReport?.blocksInstall == true {
+                if !viewModel.environmentStatus.hasCommandLineTools {
+                    Button("安装命令行工具") {
+                        viewModel.cancelInstallAfterPreflight()
+                        Task { await viewModel.promptCommandLineToolsIfNeeded() }
+                    }
+                }
                 Button(String(localized: "ui.ContentView.0e6ab59258")) {
                     viewModel.cancelInstallAfterPreflight()
                     Task { await viewModel.presentDryRunSheet() }

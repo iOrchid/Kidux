@@ -166,6 +166,8 @@ final class AppViewModel {
     var isAnalyzingPreflight = false
     var showPreflightConfirm = false
     var pendingInstallAfterPreflight = false
+    /// AI 助手：打开 API Key / 云端模型配置 Sheet
+    var showAISettingsSheet = false
     var lastRollbackBatch: InstallRollbackBatch?
     var isAISpeechListening = false
     var aiSpeechStatus: String?

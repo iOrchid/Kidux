@@ -87,13 +87,31 @@ enum InstallPreflightService {
         var findings: [InstallPreflightFinding] = []
         var dependencyHints: [String: [String]] = [:]
 
-        if !environment.hasHomebrew {
+        // 新机小白常见顺序：先 CLT（含 git）→ 再 Homebrew → 才能装其它软件
+        if !environment.hasCommandLineTools {
             findings.append(
                 InstallPreflightFinding(
                     severity: .critical,
+                    title: "未安装命令行工具（CLT）",
+                    detail: "新 Mac 通常还没有 Xcode Command Line Tools（含 git）。没有它时无法安装 Homebrew，后续软件也会失败。",
+                    suggestion: "请先安装命令行工具：系统会弹出安装窗口，完成后回到启椟再点「开始安装」"
+                )
+            )
+        }
+
+        if !environment.hasHomebrew {
+            // 有 CLT 时降为警告：允许继续，由 InstallManager 自动装 Homebrew
+            // 无 CLT 时标严重（与上方 CLT 项叠加），禁止硬闯装软件
+            findings.append(
+                InstallPreflightFinding(
+                    severity: environment.hasCommandLineTools ? .warning : .critical,
                     title: "Homebrew 未就绪",
-                    detail: "当前环境检测不到 brew，一键安装将无法执行 formula/cask。",
-                    suggestion: "先在环境页或首次引导中安装 Homebrew"
+                    detail: environment.hasCommandLineTools
+                        ? "检测不到 brew。继续安装时，启椟会先自动安装 Homebrew，再装你勾选的软件。"
+                        : "检测不到 brew。请先安装命令行工具（CLT），再装 Homebrew。",
+                    suggestion: environment.hasCommandLineTools
+                        ? "可继续安装；首次装 Homebrew 需网络与管理员密码"
+                        : "请先完成 CLT 安装，不要跳过环境准备"
                 )
             )
         }

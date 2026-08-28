@@ -32,7 +32,19 @@ struct EnvironmentStatus: Sendable {
         return String(format: "%.0f GB 可用", availableDiskGB)
     }
 
+    /// 可安全安装第三方软件：系统版本 + CLT + Homebrew + 磁盘
     var isReadyForInstall: Bool {
-        isMacOSSupported && hasHomebrew && hasSufficientDiskSpace
+        isMacOSSupported && hasCommandLineTools && hasHomebrew && hasSufficientDiskSpace
+    }
+
+    /// 环境未就绪时给用户看的短说明（安装前拦截用）
+    var installBlockerSummary: String? {
+        var parts: [String] = []
+        if !isMacOSSupported { parts.append("系统版本过低") }
+        if !hasCommandLineTools { parts.append("未装命令行工具（CLT / git）") }
+        if !hasHomebrew { parts.append("未装 Homebrew") }
+        if !hasSufficientDiskSpace { parts.append("磁盘空间不足（\(diskSpaceLabel)）") }
+        guard !parts.isEmpty else { return nil }
+        return parts.joined(separator: "；")
     }
 }

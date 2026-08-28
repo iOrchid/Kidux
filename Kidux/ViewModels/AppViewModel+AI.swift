@@ -24,7 +24,7 @@ extension AppViewModel {
 
     func resetAIConversation() {
         cancelAIGeneration()
-        aiMessages = [AIAssistantService.welcome]
+        aiMessages = [AIAssistantService.welcomeMessage(hasAPIKey: settings.hasAIAPIKey)]
         aiSuggestedFollowUps = []
     }
 
@@ -378,6 +378,16 @@ extension AppViewModel {
         ))
         aiSuggestedFollowUps = reply.suggestedFollowUps
         if let nlPlan { await triggerNLInstallIfNeeded(nlPlan) }
+
+        // 无 Key 时：本地规则答完后补一句配置引导（避免用户以为 AI「坏了」）
+        if !settings.hasAIAPIKey || !settings.enableCloudAI {
+            let alreadyTipped = aiMessages.contains {
+                $0.opensAISettings && $0.text.contains("刚才用的是")
+            }
+            if !alreadyTipped {
+                aiMessages.append(AIAssistantService.missingAPIKeyTip())
+            }
+        }
     }
 
     func openInstalledTool(_ tool: DevTool) {

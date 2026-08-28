@@ -40,12 +40,12 @@ struct OnboardingView: View {
         OnboardingPage(
             id: 2,
             icon: "sparkles",
-            title: String(localized: "ui.OnboardingView.d777de2e63"),
-            subtitle: String(localized: "ui.OnboardingView.a8df0635f0"),
+            title: "启椟 AI 助手（可选）",
+            subtitle: "装软件不依赖 AI；想更智能对话时再配 API Key",
             bullets: [
-                String(localized: "ui.OnboardingView.3ac934f6d0"),
-                String(localized: "ui.OnboardingView.068f11714b"),
-                String(localized: "ui.OnboardingView.7228d90e5e")
+                "岗位一键安装、发现页装软件：不需要 Key",
+                "自然语言问答：在硅基流动或 DeepSeek 免费注册，创建 Key",
+                "首次进入对话页可点「配置 API Key」粘贴；也可稍后在设置里配置"
             ]
         )
     ]

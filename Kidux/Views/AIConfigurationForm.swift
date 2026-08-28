@@ -81,6 +81,18 @@ struct AIConfigurationForm: View {
                     text: Bindable(viewModel.settings).aiAPIKey,
                     placeholder: provider.keyPlaceholder
                 )
+                if !settings.hasAIAPIKey {
+                    Text("在 \(provider.displayName) 官网注册后创建 Key，粘贴到上方。岗位装软件不需要 Key。")
+                        .font(.caption2)
+                        .foregroundStyle(.secondary)
+                    if let url = URL(string: provider.consoleURL) {
+                        Button("打开 \(provider.displayName) 控制台") {
+                            NSWorkspace.shared.open(url)
+                        }
+                        .buttonStyle(.link)
+                        .font(.caption)
+                    }
+                }
             }
 
             if provider == .custom {

@@ -240,7 +240,7 @@ extension AppViewModel {
         guard next != activeInteractionMode else { return }
 
         if next == .ai, aiMessages.isEmpty {
-            aiMessages = [AIAssistantService.welcome]
+            aiMessages = [AIAssistantService.welcomeMessage(hasAPIKey: settings.hasAIAPIKey)]
         }
         activeInteractionMode = next
     }

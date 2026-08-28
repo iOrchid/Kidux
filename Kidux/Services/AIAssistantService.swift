@@ -14,6 +14,8 @@ struct AIChatMessage: Identifiable, Sendable {
     let timestamp: Date
     var actionLabel: String?
     var actionTab: AppTab?
+    /// 点击后打开 AI 设置（配置 API Key）
+    var opensAISettings: Bool
     /// S12-02：对话内软件推荐卡片
     var recommendedToolIDs: [String]
 
@@ -25,6 +27,7 @@ struct AIChatMessage: Identifiable, Sendable {
         timestamp: Date = Date(),
         actionLabel: String? = nil,
         actionTab: AppTab? = nil,
+        opensAISettings: Bool = false,
         recommendedToolIDs: [String] = []
     ) {
         self.id = id
@@ -34,6 +37,7 @@ struct AIChatMessage: Identifiable, Sendable {
         self.timestamp = timestamp
         self.actionLabel = actionLabel
         self.actionTab = actionTab
+        self.opensAISettings = opensAISettings
         self.recommendedToolIDs = recommendedToolIDs
     }
 }
@@ -46,20 +50,56 @@ struct AIAssistantReply: Sendable {
 }
 
 enum AIAssistantService {
-    static let welcome = AIChatMessage(
-        role: .assistant,
-        text: """
-        你好，我是 **\(BrandInfo.assistantName)**。
+    static func welcomeMessage(hasAPIKey: Bool) -> AIChatMessage {
+        if hasAPIKey {
+            return AIChatMessage(
+                role: .assistant,
+                text: """
+                你好，我是 **\(BrandInfo.assistantName)**。云端 AI 已就绪。
 
-        你可以直接描述需求，例如：
+                可以直接说，例如：
 
-        - 配置岗位环境（全栈 / 前端 / 后端）
-        - 推荐效率或开源工具
-        - 检查软件更新、修复「应用已损坏」
+                - 帮我配置全栈 / 前端环境
+                - 推荐效率工具
+                - 检查软件更新、修复「应用已损坏」
+                """
+            )
+        }
+        return AIChatMessage(
+            role: .assistant,
+            text: """
+            你好，我是 **\(BrandInfo.assistantName)**。
 
-        在 **设置 → AI 助手** 填入 API Key 后可使用云端大模型；未配置时使用本地规则引擎。
-        """
-    )
+            **不用 AI 也能装软件**：选岗位 → 勾选工具 → 一键安装。
+
+            想用自然语言对话（更智能）时，需要自己的 API Key（有免费额度即可）：
+
+            1. 打开硅基流动（cloud.siliconflow.cn）或 DeepSeek（platform.deepseek.com）注册
+            2. 创建 API Key 并复制
+            3. 点下方按钮粘贴，并打开「启用云端 AI」
+
+            未配置时，我只能用本地规则回答（例如识别「装前端环境」），无法自由闲聊。
+            """,
+            actionLabel: "配置 API Key",
+            opensAISettings: true
+        )
+    }
+
+    /// 兼容旧调用
+    static var welcome: AIChatMessage { welcomeMessage(hasAPIKey: false) }
+
+    static func missingAPIKeyTip() -> AIChatMessage {
+        AIChatMessage(
+            role: .assistant,
+            text: """
+            刚才用的是 **本地规则**，不是大模型。
+
+            若回答不够智能：点下方配置 API Key（硅基流动 / DeepSeek），开启云端 AI 后再问一次。岗位一键安装不依赖 Key。
+            """,
+            actionLabel: "去配置 API Key",
+            opensAISettings: true
+        )
+    }
 
     static let suggestedPrompts = [
         "帮我配置全栈开发环境",

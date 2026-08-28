@@ -100,6 +100,16 @@ final class InstallManager {
         appendLog("=== \(BrandInfo.displayNameCN) 安装开始 ===\n")
         appendLog("镜像源: \(mirror.displayName)\n\n")
 
+        // 新机：无 CLT 时不要硬装软件，先引导装命令行工具
+        if await !homebrew.hasCommandLineTools() {
+            appendLog("❌ 未检测到 Xcode 命令行工具（CLT，含 git）\n")
+            appendLog("💡 正在打开系统安装窗口…请完成后回到启椟，再点开始安装。\n")
+            _ = await homebrew.promptInstallCommandLineTools()
+            markAllFailed("请先安装命令行工具（CLT），再安装其它软件")
+            finish()
+            return
+        }
+
         if await !homebrew.isInstalled() {
             appendLog("正在安装 Homebrew...\n")
             appendLog("💡 若弹出密码框，请在系统对话框中输入 Mac 登录密码\n")

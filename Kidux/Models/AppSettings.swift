@@ -436,8 +436,8 @@ final class AppSettings {
         aiStreamEnabled = UserDefaults.standard.object(forKey: Keys.aiStreamEnabled) as? Bool ?? true
         aiTemperature = UserDefaults.standard.object(forKey: Keys.aiTemperature) as? Double ?? 0.7
         aiMaxTokens = UserDefaults.standard.object(forKey: Keys.aiMaxTokens) as? Int ?? 1024
-        let modeRaw = UserDefaults.standard.string(forKey: Keys.interactionMode) ?? AppInteractionMode.classic.rawValue
-        interactionMode = AppInteractionMode(rawValue: modeRaw) ?? .classic
+        let modeRaw = UserDefaults.standard.string(forKey: Keys.interactionMode) ?? AppInteractionMode.ai.rawValue
+        interactionMode = AppInteractionMode(rawValue: modeRaw) ?? .ai
         teamBundleName = UserDefaults.standard.string(forKey: Keys.teamBundleName) ?? ""
         teamBundleAuthor = UserDefaults.standard.string(forKey: Keys.teamBundleAuthor) ?? ""
         showMenuBarHealthIndicator = UserDefaults.standard.object(forKey: Keys.showMenuBarHealthIndicator) as? Bool ?? true

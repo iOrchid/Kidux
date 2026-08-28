@@ -814,6 +814,7 @@ extension AppViewModel {
 
     /// 开始安装前跑依赖分析；有严重问题时弹确认。
     func startInstallationWithPreflight() async {
+        await checkEnvironment(force: true)
         isAnalyzingPreflight = true
         let report = await InstallPreflightService.analyze(
             tools: resolvedTools,
@@ -832,6 +833,13 @@ extension AppViewModel {
             return
         }
         await startInstallation()
+    }
+
+    /// 预检阻断时：引导安装 CLT（若缺失）
+    func promptCommandLineToolsIfNeeded() async {
+        guard !environmentStatus.hasCommandLineTools else { return }
+        _ = await homebrewService.promptInstallCommandLineTools()
+        extendedCatalogStatusMessage = "已打开系统「命令行工具」安装窗口，完成后请再点开始安装"
     }
 
     func confirmInstallAfterPreflight() async {

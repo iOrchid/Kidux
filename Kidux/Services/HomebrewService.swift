@@ -39,17 +39,50 @@ actor HomebrewService {
         return result?.isSuccess == true
     }
 
+    /// 是否已安装 Xcode Command Line Tools（Homebrew / git 前置）
+    func hasCommandLineTools() async -> Bool {
+        let result = try? await shell.run("xcode-select -p 2>/dev/null")
+        return result?.isSuccess == true
+    }
+
+    /// 弹出系统「安装命令行工具」对话框（用户需在系统窗口完成）
+    @discardableResult
+    func promptInstallCommandLineTools() async -> Bool {
+        let result = try? await shell.run("xcode-select --install 2>&1")
+        // 已安装时会非 0；已弹出安装器时也可能非 0，只要命令能执行即可
+        return result != nil
+    }
+
     func installHomebrew(
         mirror: BrewMirror,
         onOutput: (@Sendable (String) -> Void)? = nil
     ) async throws {
+        if await !hasCommandLineTools() {
+            onOutput?("❌ 尚未安装 Xcode 命令行工具（含 git）\n")
+            onOutput?("💡 正在打开系统安装窗口，请完成后回到启椟重试…\n")
+            _ = await promptInstallCommandLineTools()
+            throw HomebrewError.installFailed(
+                "需要先安装「命令行工具（CLT）」。请在系统弹窗中完成安装，再重新开始。"
+            )
+        }
+
         let env = mirror.environmentVariables
+        onOutput?("▶ 正在安装 Homebrew（首次可能需几分钟，请保持网络畅通）…\n")
         let script = """
         NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
         """
         let result = try await shell.run(script, environment: env, onOutput: onOutput)
         guard result.isSuccess else {
-            throw HomebrewError.installFailed(result.combinedOutput)
+            let combined = result.combinedOutput
+            let hint: String
+            if combined.lowercased().contains("xcode") || combined.lowercased().contains("command line") {
+                hint = "\n提示：请先安装命令行工具（CLT），再重试 Homebrew。"
+            } else if combined.lowercased().contains("curl") || combined.lowercased().contains("network") {
+                hint = "\n提示：网络异常时，可在设置中切换 Homebrew 国内镜像后重试。"
+            } else {
+                hint = ""
+            }
+            throw HomebrewError.installFailed(combined + hint)
         }
         if mirror != .official {
             try await applyMirrorRemotes(mirror: mirror, onOutput: onOutput)

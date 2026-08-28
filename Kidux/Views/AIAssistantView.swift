@@ -22,8 +22,16 @@ struct AIAssistantView: View {
         }
         .onAppear {
             if viewModel.aiMessages.isEmpty {
-                viewModel.aiMessages = [AIAssistantService.welcome]
+                viewModel.aiMessages = [
+                    AIAssistantService.welcomeMessage(hasAPIKey: viewModel.settings.hasAIAPIKey)
+                ]
             }
+        }
+        .sheet(isPresented: Binding(
+            get: { viewModel.showAISettingsSheet },
+            set: { viewModel.showAISettingsSheet = $0 }
+        )) {
+            AISettingsSheet()
         }
     }
 
@@ -109,9 +117,17 @@ struct AIAssistantView: View {
                 .foregroundStyle(.secondary)
                 .multilineTextAlignment(.center)
             if !viewModel.settings.hasAIAPIKey {
-                Text(String(localized: "ui.AIAssistantView.019133d9"))
-                    .font(.caption)
-                    .foregroundStyle(.orange)
+                VStack(spacing: 10) {
+                    Text("尚未配置 API Key · 当前为本地规则（装软件仍可用）")
+                        .font(.caption)
+                        .foregroundStyle(.orange)
+                        .multilineTextAlignment(.center)
+                    Button("配置 API Key，开启智能对话") {
+                        viewModel.showAISettingsSheet = true
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .controlSize(.small)
+                }
             }
         }
         .frame(maxWidth: .infinity)
@@ -226,8 +242,20 @@ struct AIAssistantView: View {
                 VStack(alignment: .leading, spacing: 14) {
                     AIFormattedText(text: message.text, role: .assistant)
 
-                    if let label = message.actionLabel, let tab = message.actionTab {
-                        assistantActionButton(label: label, tab: tab)
+                    if let label = message.actionLabel {
+                        if message.opensAISettings {
+                            VStack(alignment: .leading, spacing: 10) {
+                                assistantSectionDivider
+                                HStack(spacing: 0) {
+                                    AICompactActionButton(label: label) {
+                                        viewModel.showAISettingsSheet = true
+                                    }
+                                    Spacer(minLength: 0)
+                                }
+                            }
+                        } else if let tab = message.actionTab {
+                            assistantActionButton(label: label, tab: tab)
+                        }
                     }
 
                     if !message.recommendedToolIDs.isEmpty {

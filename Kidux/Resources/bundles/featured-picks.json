@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "sections": [
     {
       "id": "efficiency",
@@ -11,13 +11,26 @@
       "id": "dev-starter",
       "title": "开发起步",
       "subtitle": "终端 · 编辑器 · 容器",
-      "tool_ids": ["iterm2", "visual-studio-code", "cursor", "docker", "warp"]
+      "tool_ids": ["iterm2", "visual-studio-code", "cursor", "trae", "docker", "warp"]
     },
     {
       "id": "ai-essentials",
       "title": "AI 时代必备",
-      "subtitle": "编辑器 · Agent CLI · 本地大模型",
-      "tool_ids": ["cursor", "claude-code", "codex", "ollama", "lm-studio", "claude", "aider", "chatbox"]
+      "subtitle": "IDE · Agent CLI · 本地大模型",
+      "tool_ids": [
+        "cursor",
+        "trae",
+        "trae-cn",
+        "codebuddy",
+        "claude-code",
+        "codex",
+        "ollama",
+        "lm-studio",
+        "claude",
+        "aider",
+        "chatbox",
+        "antigravity"
+      ]
     },
     {
       "id": "design-product",

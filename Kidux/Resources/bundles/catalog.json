@@ -9768,14 +9768,14 @@
     {
       "id": "trae",
       "name": "Trae",
-      "description": "面向软件开发的 AI IDE",
+      "description": "字节跳动 Adaptive AI IDE",
       "category": "editor",
       "kind": "gui",
       "source": {
         "type": "cask",
         "identifier": "trae"
       },
-      "priority": 60
+      "priority": 27
     },
     {
       "id": "translatium",
